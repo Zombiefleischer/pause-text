@@ -1,1 +1,1 @@
-Simple module that allows the user to change the picture show to rotate when pause is pressed.
+Simple module to change the image of the pause icon shown when the game is paused, to make your UI just that little more unique.
