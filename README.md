@@ -1,0 +1,1 @@
+Simple module that allows the user to change the picture show to rotate when pause is pressed.
