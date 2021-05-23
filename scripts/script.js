@@ -12,7 +12,7 @@ Hooks.on('init', () => {
         hint: game.i18n.format("PAUSEICON.opacity_hint"),
         scope: "world",
         config: true,
-        default: 0.5,
+        default: 50,
         type: Number,
     });
  });
