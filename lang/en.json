@@ -1,6 +1,6 @@
 {
     "PAUSEICON.path_name": "Foundry data path of pause icon: ",
-    "PAUSEICON.path_hint": "Folder and filename of where your alternative pause icon is within the Foundry VTT data.",
+    "PAUSEICON.path_hint": "Folder and filename of where your alternative pause icon is within the Foundry VTT data. Currently only works for core and data, not for S3 buckets.",
     "PAUSEICON.opacity_name": "Opacity %:",
     "PAUSEICON.opacity_hint": "Value between 0 and 100, lower means more translucent"
 }

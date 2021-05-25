@@ -3,10 +3,10 @@
 	"title": "Alternative Pause Icon",
 	"description": "Set your pause icon to whatever image you prefer. Supported formats are jpg, png, gif and webP. WebM is NOT supported.",
 	"author": "Freeze",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"minimumCoreVersion": "0.7.9",
 	"compatibleCoreVersion": "0.7.9",
-	"scripts": ["scripts/script.js"],
+	"esmodules": ["scripts/script.js"],
 	"socket": false,
 	"type": "module",
     "languages": [{
@@ -17,5 +17,5 @@
     ],
 	"url": "https://gitlab.com/Freeze020/pause-icon/",
 	"manifest": "https://gitlab.com/Freeze020/pause-icon/-/raw/master/module.json",
-	"download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v0.1.2/improved-combat-numbers-v0.1.2.zip"
+	"download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v0.1.3/improved-combat-numbers-v0.1.3.zip"
 }
