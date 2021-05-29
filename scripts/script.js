@@ -1,5 +1,5 @@
 import {registerSettings} from "./settings.js"
-Hooks.on('init', () => {
+Hooks.on('setup', () => {
     registerSettings();
 });
 Hooks.on("renderPause", function () {

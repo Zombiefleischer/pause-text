@@ -24,7 +24,7 @@ export const registerSettings = function () {
         hint: game.i18n.format("PAUSEICON.text_hint"),
         scope: "world",
         config: true,
-        default: "GAME.Paused",
+        default: game.i18n.format("GAME.Paused"),
         type: String,
         onChange: () => window.location.reload()
     })
