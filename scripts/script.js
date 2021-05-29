@@ -1,10 +1,7 @@
-import {registerSettingsIcon, registerSettingsText} from "./settings.js"
+import {registerSettings} from "./settings.js"
 Hooks.on('init', () => {
-    registerSettingsIcon();
+    registerSettings();
 });
-Hooks.on('ready', () => {
-    registerSettingsText();
-})
 Hooks.on("renderPause", function () {
     if ($("#pause").attr("class") !== "paused") return;
     const path = game.settings.get("pause-icon", "path").replace(/(\[.*?\] )/g, "");

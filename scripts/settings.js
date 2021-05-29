@@ -1,6 +1,6 @@
 import IconPicker from "./IconPicker.js";
 
-export const registerSettingsIcon = function () {
+export const registerSettings = function () {
     game.settings.register("pause-icon", "path", {
         name: game.i18n.format("PAUSEICON.path_name"),
         hint: game.i18n.format("PAUSEICON.path_hint"),
@@ -19,15 +19,13 @@ export const registerSettingsIcon = function () {
         type: Number,
         onChange: () => window.location.reload()
     });
-}
-export const registerSettingsText = function () {
     game.settings.register("pause-icon", "text", {
         name: game.i18n.format("PAUSEICON.text_name"),
         hint: game.i18n.format("PAUSEICON.text_hint"),
         scope: "world",
         config: true,
-        default: game.i18n.format("GAME.Paused"),
+        default: "GAME.Paused",
         type: String,
         onChange: () => window.location.reload()
     })
-}
+};
