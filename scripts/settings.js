@@ -1,6 +1,6 @@
 import IconPicker from "./IconPicker.js";
 
-export const registerSettings = function () {
+export const registerSettingsIcon = function () {
     game.settings.register("pause-icon", "path", {
         name: game.i18n.format("PAUSEICON.path_name"),
         hint: game.i18n.format("PAUSEICON.path_hint"),
@@ -19,6 +19,8 @@ export const registerSettings = function () {
         type: Number,
         onChange: () => window.location.reload()
     });
+}
+export const registerSettingsText = function () {
     game.settings.register("pause-icon", "text", {
         name: game.i18n.format("PAUSEICON.text_name"),
         hint: game.i18n.format("PAUSEICON.text_hint"),
