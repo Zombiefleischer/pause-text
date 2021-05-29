@@ -19,4 +19,13 @@ export const registerSettings = function () {
         type: Number,
         onChange: () => window.location.reload()
     });
+    game.settings.register("pause-icon", "text", {
+        name: game.i18n.format("PAUSEICON.text_name"),
+        hint: game.i18n.format("PAUSEICON.text_hint"),
+        scope: "world",
+        config: true,
+        default: game.i18n.format("GAME.Paused"),
+        type: String,
+        onChange: () => window.location.reload()
+    })
 }
