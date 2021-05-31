@@ -1,5 +1,3 @@
-import {FilePicker} from '../settings-extender/settings-extender.js';
-
 export const registerSettings = function () {
     game.settings.register("pause-icon", "path", {
         name: game.i18n.format("PAUSEICON.path_name"),
@@ -7,7 +5,7 @@ export const registerSettings = function () {
         scope: "world",
         config: true,
         default: "icons/svg/clockwork.svg",
-        type: FilePicker[Image],
+        type: window.Azzu.SettingsTypes.FilePickerImage,
         onChange: () => window.location.reload()
     });
     game.settings.register("pause-icon", "opacity", {

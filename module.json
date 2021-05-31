@@ -3,7 +3,7 @@
 	"title": "Alternative Pause Icon",
 	"description": "Set your pause icon to whatever image you prefer. Supported formats are jpg, png, gif and webP. WebM is NOT supported.",
 	"author": "Freeze",
-	"version": "0.2.0",
+	"version": "0.2.0a",
 	"minimumCoreVersion": "0.7.9",
 	"compatibleCoreVersion": "0.8.5",
 	"esmodules": ["scripts/script.js"],
@@ -22,5 +22,5 @@
     ],
 	"url": "https://gitlab.com/Freeze020/pause-icon/",
 	"manifest": "https://gitlab.com/Freeze020/pause-icon/-/raw/master/module.json",
-	"download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v0.2.0/pause-icon-v0.1.0.zip"
+	"download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v0.2.0a/pause-icon-v0.2.0a.zip"
 }

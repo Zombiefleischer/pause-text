@@ -4,8 +4,9 @@ Hooks.on('setup', () => {
 });
 Hooks.on("renderPause", function () {
     if ($("#pause").attr("class") !== "paused") return;
-    const path = game.settings.get("pause-icon", "path").replace(/(\[.*?\] )/g, "");
+    const path = game.settings.get("pause-icon", "path");
+    const opacity = parseInt(game.settings.get("pause-icon", "opacity")) / 100;
     $("#pause.paused img").attr("src", path);
-    $("#pause.paused img").css("opacity", parseInt(game.settings.get("pause-icon", "opacity")) / 100);
+    $("#pause.paused img").css("opacity", opacity);
     $("#pause.paused h3").text(game.settings.get("pause-icon", "text"));
 });
