@@ -5,7 +5,7 @@
 	"author": "Freeze",
 	"version": "0.2.3",
 	"minimumCoreVersion": "0.8.6",
-	"compatibleCoreVersion": "0.8.6",
+	"compatibleCoreVersion": "0.8.7",
 	"esmodules": ["scripts/script.js"],
     "dependencies": [],
 	"socket": false,
