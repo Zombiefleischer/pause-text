@@ -6,7 +6,7 @@ export const registerSettings = function () {
         config: true,
         default: "icons/svg/clockwork.svg",
         type: String,
-        filePicker: true, // This is the important part
+        filePicker: true,
         onChange: () => window.location.reload()
     });
     game.settings.register("pause-icon", "opacity", {
@@ -26,5 +26,14 @@ export const registerSettings = function () {
         default: game.i18n.format("GAME.Paused"),
         type: String,
         onChange: () => window.location.reload()
-    })
+    });
+    game.settings.register("pause-icon", "speed", {
+        name: game.i18n.format("PAUSEICON.speed_name"),
+        hint: game.i18n.format("PAUSEICON.speed_hint"),
+        scope: "world",
+        config: true,
+        default: "5",
+        type: Number,
+        onChange: () => window.location.reload()
+    });
 };
