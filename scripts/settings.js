@@ -5,7 +5,8 @@ export const registerSettings = function () {
         scope: "world",
         config: true,
         default: "icons/svg/clockwork.svg",
-        type: window.Azzu.SettingsTypes.FilePickerImageVideo,
+        type: String,
+        filePicker: true, // This is the important part
         onChange: () => window.location.reload()
     });
     game.settings.register("pause-icon", "opacity", {
