@@ -1,10 +1,12 @@
 {
-    "PAUSEICON.path_name":    "Foundry data path of pause icon: ",
-    "PAUSEICON.path_hint":    "Folder and filename of where your alternative pause icon is within the Foundry VTT data. Click the picker button to select your icon. Type None, for no image.",
-    "PAUSEICON.opacity_name": "Opacity %:",
-    "PAUSEICON.opacity_hint": "Value between 0 and 100, lower means more translucent",
-    "PAUSEICON.text_name":    "Pause message: ",
-    "PAUSEICON.text_hint":    "Message that appears when paused.",
-    "PAUSEICON.speed_name":   "Speed: ",
-    "PAUSEICON.speed_hint":   "seconds per rotation, 0 is no rotation."
+    "PAUSEICON.path_name":      "Foundry data path of pause icon: ",
+    "PAUSEICON.path_hint":      "Folder and filename of where your alternative pause icon is within the Foundry VTT data. Click the picker button to select your icon. Type None, for no image.",
+    "PAUSEICON.opacity_name":   "Opacity %:",
+    "PAUSEICON.opacity_hint":   "Value between 0 and 100, lower means more translucent",
+    "PAUSEICON.text_name":      "Pause message: ",
+    "PAUSEICON.text_hint":      "Message that appears when paused.",
+    "PAUSEICON.speed_name":     "Speed: ",
+    "PAUSEICON.speed_hint":     "seconds per rotation, 0 is no rotation.",
+    "PAUSEICON.dimension_name": "Dimension (width & height): ",
+    "PAUSEICON.dimension_hint": "Icon is square, widht and height are the same number."
 }

@@ -18,6 +18,15 @@ export const registerSettings = function () {
         type: Number,
         onChange: () => window.location.reload()
     });
+    game.settings.register("pause-icon", "dimension", {
+        name: game.i18n.format("PAUSEICON.dimension_name"),
+        hint: game.i18n.format("PAUSEICON.dimension_hint"),
+        scope: "world",
+        config: true,
+        default: 128,
+        type: Number,
+        onChange: () => window.location.reload()
+    });
     game.settings.register("pause-icon", "text", {
         name: game.i18n.format("PAUSEICON.text_name"),
         hint: game.i18n.format("PAUSEICON.text_hint"),
