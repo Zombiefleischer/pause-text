@@ -1,0 +1,15 @@
+{
+    "I18N.LANGUAGE": "Español",
+    "I18N.MAINTAINERS": "@Viriato139ac#0342",
+
+    "PAUSEICON.path_name":      "Localización del icono de pausa: ",
+    "PAUSEICON.path_hint":      "Localización y nombre del fichero donde se encuentran sus iconos de pausa alternativos dentro de directorio de datos de Foundry VTT. Haga clic en el explorador de archivos para seleccionar el icono. Escriba None para no usar ninguna imagen",
+    "PAUSEICON.opacity_name":   "Opacidad (%): ",
+    "PAUSEICON.opacity_hint":   "Valor entre 0 y 100, cuanto menor más traslúcido",
+    "PAUSEICON.text_name":      "Mensaje de pausa: ",
+    "PAUSEICON.text_hint":      "Mensaje que aparece al pausar el juego",
+    "PAUSEICON.speed_name":     "Velocidad: ",
+    "PAUSEICON.speed_hint":     "Segundos por cada rotación, establezca a 0 para que no haya rotación",
+    "PAUSEICON.dimension_name": "Dimensiones (anchura/altura): ",
+    "PAUSEICON.dimension_hint": "El icono es cuadrado, anchura y altura tienen el mismo valor"
+}
