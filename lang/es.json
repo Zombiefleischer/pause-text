@@ -10,6 +10,14 @@
     "PAUSEICON.text_hint":      "Mensaje que aparece al pausar el juego",
     "PAUSEICON.speed_name":     "Velocidad: ",
     "PAUSEICON.speed_hint":     "Segundos por cada rotación, establezca a 0 para que no haya rotación",
-    "PAUSEICON.dimension_name": "Dimensiones (anchura/altura): ",
-    "PAUSEICON.dimension_hint": "El icono es cuadrado, anchura y altura tienen el mismo valor"
+    "PAUSEICON.dimensionX_name": "Dimensiones (anchura): ",
+    "PAUSEICON.dimensionX_hint": "Ancho del icono en píxeles",
+    "PAUSEICON.dimensionY_name": "Dimensiones (altura): ",
+    "PAUSEICON.dimensionY_hint": "Alto del icono en píxeles",
+    "PAUSEICON.fontSize_name":   "Tamaño de la fuente:",
+    "PAUSEICON.fontSize_hint":   "Tamaño de la fuente en em, por defecto es 2",
+    "PAUSEICON.shadow_name":     "Sombra paralela (on/off): ",
+    "PAUSEICON.shadow_hint":     "Cuando se activa, aparecerá una sombra paralela en el texto",
+    "PAUSEICON.textColor_name":  "Color: ",
+    "PAUSEICON.textColor_hint":  "O bien el código hexadecimal (p.ej. #EEEEEE) o el nombre del color HTML (p.ej. CornflowerBlue)"
 }
