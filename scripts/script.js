@@ -4,17 +4,17 @@ Hooks.on('setup', () => {
 });
 Hooks.on("renderPause", function () {
     if ($("#pause").attr("class") !== "paused") return;
-    const path = game.settings.get("pause-icon", "path");
-    const opacity = parseInt(game.settings.get("pause-icon", "opacity")) / 100;
-    const speed = game.settings.get("pause-icon", "speed") + "s linear 0s infinite normal none running rotation";
-    const text = game.settings.get("pause-icon", "text");
-    const dimensionX = game.settings.get("pause-icon", "dimensionX");
-    const dimensionY = game.settings.get("pause-icon", "dimensionY");
+    const path = game.settings.get("pause-icon", "allSettings").path;
+    const opacity = game.settings.get("pause-icon", "allSettings").opacity / 100;
+    const speed = game.settings.get("pause-icon", "allSettings").speed + "s linear 0s infinite normal none running rotation";
+    const text = game.settings.get("pause-icon", "allSettings").text;
+    const dimensionX = game.settings.get("pause-icon", "allSettings").dimensionX;
+    const dimensionY = game.settings.get("pause-icon", "allSettings").dimensionY;
     const top = `${-16 - (dimensionY - 128) / 2}px`;
     const left = `calc(50% - ${dimensionX / 2}px)`;
-    const textColor = game.settings.get("pause-icon", "textColor");
-    const shadow = game.settings.get("pause-icon", "shadow");
-    const fontSize = game.settings.get("pause-icon", "fontSize");
+    const textColor = game.settings.get("pause-icon", "allSettings").textColor;
+    const shadow = game.settings.get("pause-icon", "allSettings").shadow;
+    const fontSize = game.settings.get("pause-icon", "allSettings").fontSize;
     const size = `${(text.length * fontSize * 90 / 12) + 70}px 100px`;
     if(path === "None" || dimensionX === 0 || dimensionY === 0) {
         $("#pause.paused img").hide();

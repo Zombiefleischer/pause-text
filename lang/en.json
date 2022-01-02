@@ -1,12 +1,12 @@
 {
-    "PAUSEICON.path_name":       "Foundry data path of pause icon: ",
+    "PAUSEICON.path_name":       "Data path of pause icon: ",
     "PAUSEICON.path_hint":       "Folder and filename of where your alternative pause icon is within the Foundry VTT data. Click the picker button to select your icon. Type None, for no image.",
     "PAUSEICON.opacity_name":    "Opacity %:",
     "PAUSEICON.opacity_hint":    "Value between 0 and 100, lower means more translucent",
     "PAUSEICON.text_name":       "Pause message: ",
     "PAUSEICON.text_hint":       "Message that appears when paused.",
     "PAUSEICON.speed_name":      "Speed: ",
-    "PAUSEICON.speed_hint":      "seconds per rotation, 0 is no rotation.",
+    "PAUSEICON.speed_hint":      "Seconds per rotation, 0 is no rotation.",
     "PAUSEICON.dimensionX_name": "Dimension (width): ",
     "PAUSEICON.dimensionX_hint": "Width of the icon in pixels.",
     "PAUSEICON.dimensionY_name": "Dimension (height): ",
@@ -16,5 +16,8 @@
     "PAUSEICON.shadow_name":     "Drop shadow (on/off): ",
     "PAUSEICON.shadow_hint":     "When enabled there is a drop shadow under the text.",
     "PAUSEICON.textColor_name":  "Color: ",
-    "PAUSEICON.textColor_hint":  "Either Hexcode (eg. #EEEEEE) or HTML color name (eg. CornflowerBlue)"
+    "PAUSEICON.textColor_hint":  "Either Hexcode (eg. #EEEEEE) or HTML color name (eg. CornflowerBlue)",
+    "PAUSEICON.saveButton":      "Save Settings",
+    "PAUSEICON.settings":        "Settings: ",
+    "PAUSEICON.settingsButton":  "Settings Submenu"
 }
