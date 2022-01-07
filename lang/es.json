@@ -19,5 +19,8 @@
     "PAUSEICON.shadow_name":     "Sombra paralela (on/off): ",
     "PAUSEICON.shadow_hint":     "Cuando se activa, aparecerá una sombra paralela en el texto",
     "PAUSEICON.textColor_name":  "Color: ",
-    "PAUSEICON.textColor_hint":  "O bien el código hexadecimal (p.ej. #EEEEEE) o el nombre del color HTML (p.ej. CornflowerBlue)"
+    "PAUSEICON.textColor_hint":  "O bien el código hexadecimal (p.ej. #EEEEEE) o el nombre del color HTML (p.ej. CornflowerBlue)",
+    "PAUSEICON.saveButton":      "Guardar ajustes",
+    "PAUSEICON.settings":        "Ajustes: ",
+    "PAUSEICON.settingsButton":  "Submenú ajustes"
 }
