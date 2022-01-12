@@ -28,7 +28,9 @@
         <label class="pi-label-name">{{localize "PAUSEICON.textColor_name"}}</label>
         
         <div class="form-fields">
-            <input class="pi-text-color" type="Text" value="{{textColor}}"> 
+            <!--<input class="color" type="text" name="exampleColor" value="#ff6400"> -->
+            <input type="color" value="{{textColor}}" data-edit="color-input">
+            <input name="color-input" class="pi-text-color" type="Text" value="{{textColor}}"> 
         </div>
         <p class="notes">{{localize "PAUSEICON.textColor_hint"}}</p>
     </div>
