@@ -1,0 +1,23 @@
+{
+    "PAUSEICON.path_name":       "一時停止アイコンのファイル保存先：",
+    "PAUSEICON.path_hint":       "オンセ工房 Foundry VTTのユーザデータ内部に置かれている既存の一時停止アイコンの代わりとなるファイルのフォルダと名前を指定します。Noneと入力したら画像が消えます。",
+    "PAUSEICON.opacity_name":    "不透明度：",
+    "PAUSEICON.opacity_hint":    "0〜100（値が小さいほど透明になります）",
+    "PAUSEICON.text_name":       "一時停止メッセージ：",
+    "PAUSEICON.text_hint":       "一時停止時に表示されるメッセージです。",
+    "PAUSEICON.speed_name":      "回転速度：",
+    "PAUSEICON.speed_hint":      "１回の回転に必要な秒数です。0は回転を停止します。",
+    "PAUSEICON.dimensionX_name": "幅：",
+    "PAUSEICON.dimensionX_hint": "アイコンの幅をピクセル単位で指定します。",
+    "PAUSEICON.dimensionY_name": "高さ：",
+    "PAUSEICON.dimensionY_hint": "アイコンの高さをピクセル単位で指定します。",
+    "PAUSEICON.fontSize_name":   "フォントサイズ：",
+    "PAUSEICON.fontSize_hint":   "フォントの大きさをem単位で指定します。デフォルトは2です。",
+    "PAUSEICON.shadow_name":     "影（on/off）：",
+    "PAUSEICON.shadow_hint":     "有効時、一時停止のメッセージの下に影が表示されます。",
+    "PAUSEICON.textColor_name":  "色：",
+    "PAUSEICON.textColor_hint":  "16進コード（例: #EEEEEE）またはHTMLカラー名 (例：Blue）を入力できます。",
+    "PAUSEICON.saveButton":      "設定を保存",
+    "PAUSEICON.settings":        "設定：",
+    "PAUSEICON.settingsButton":  "サブ設定"
+}
