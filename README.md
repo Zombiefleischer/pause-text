@@ -6,3 +6,4 @@ in v0.3.0 a color picker has been added for ease of setting the color.
 And enjouy a simple UI change!
 
 Spanish localization added by user: Jose Lozano. Thanks!!
+Japanese localization added by user: BrotherSharp. Thanks!!
