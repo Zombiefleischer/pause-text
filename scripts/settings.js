@@ -58,6 +58,11 @@ class PauseIconSubmenu extends FormApplication {
         }
         return source;
     }
+    // _updateObject(event, formData) {
+    //     console.log(`Alternative Pause Icon | Saving compendia sources:`);
+    //     console.log(formData);
+    //     //return game.settings.set("pause-icon", "allSettings", formData);
+    // }
 }
 export const registerSettings = function () {
     game.settings.register("pause-icon", "allSettings", {

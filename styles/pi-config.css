@@ -1,12 +1,12 @@
-label.pi-label-name {
+label.pause-icon.pi-label-name {
     font-weight: bold;
 }
-.pi-settings-save {
+.pause-icon.pi-settings-save {
     width: 200px;
     background-color: rgb(190, 189, 178);
     border: 2px groove var(--color-border-light-highlight);
 }
-.pause-icon-submenu-header{
+.pause-icon.pi-submenu-header{
     display: flex;
     align-content: flex-start;
     justify-content: space-around;
