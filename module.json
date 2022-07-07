@@ -6,7 +6,7 @@
   "authors": [],
   "url": "https://gitlab.com/Freeze020/pause-icon/",
   "flags": {},
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "10",
   "scripts": [],
@@ -36,7 +36,7 @@
   "dependencies": [],
   "socket": false,
   "manifest": "https://gitlab.com/Freeze020/pause-icon/-/raw/master/module.json",
-  "download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v1.0.0/pause-icon-v1.0.0.zip",
+  "download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v1.0.1/pause-icon-v1.0.1.zip",
   "protected": false,
   "coreTranslation": false
 }
