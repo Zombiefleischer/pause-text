@@ -24,7 +24,7 @@
   "dependencies": [],
   "socket": false,
   "manifest": "https://github.com/Zombiefleischer/pause-text/blob/master/module.json",
-  "download": "https://gitlab.com/Freeze020/pause-icon/-/archive/v1.0.0/pause-text-v1.0.0.zip",
+  "download": "https://github.com/Zombiefleischer/pause-text/-/archive/v1.0.0/pause-text-1.0.0.zip",
   "protected": false,
   "coreTranslation": false
 }
