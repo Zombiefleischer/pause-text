@@ -10,10 +10,8 @@
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "10",
   "scripts": [],
-  "esmodules": [
-    "scripts/script.js"
-  ],
-  "styles": ["styles/pi-config.css"],
+  "esmodules": ["scripts/script.js"],
+  "styles": ["styles/pt-config.css"],
   "languages": [
     {
       "lang": "en",
