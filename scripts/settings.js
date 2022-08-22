@@ -8,8 +8,8 @@ class PauseIconSubmenu extends FormApplication {
             popOut: true,
             width: "550",
             height: "auto",
-            template: `/modules/pause-icon/templates/settings-submenu.html`,
-            id: 'pause-icon-settings-submenu',
+            template: `/modules/pause-text/templates/settings-submenu.html`,
+            id: 'pause-text-settings-submenu',
             title: 'Alternative Pause Icon Settings',
             resizable: false,
             
@@ -17,32 +17,32 @@ class PauseIconSubmenu extends FormApplication {
     }
     activateListeners(html) {
         super.activateListeners(html);
-        const saveButton = $(".pi-settings-save", html);
+        const saveButton = $(".pt-settings-save", html);
         saveButton[0].addEventListener("click", async function(){
-            await game.settings.set("pause-icon", "allSettings", {
-                path: $(".pi-path", html).val(),
-                opacity: Number($(".pi-opacity", html).val()),
-                dimensionX: Number($(".pi-dimensionX", html).val()),
-                dimensionY: Number($(".pi-dimensionY", html).val()),
-                text: $(".pi-text", html).val(),
-                textColor: $(".pi-text-color", html).val(),
-                shadow: $(".pi-shadow").prop("checked"),
-                fontSize: $(".pi-font-size").val(),
-                speed: $(".pi-speed").val()
+            await game.settings.set("pause-text", "allSettings", {
+                path: $(".pt-path", html).val(),
+                opacity: Number($(".pt-opacity", html).val()),
+                dimensionX: Number($(".pt-dimensionX", html).val()),
+                dimensionY: Number($(".pt-dimensionY", html).val()),
+                text: $(".pt-text", html).val(),
+                textColor: $(".pt-text-color", html).val(),
+                shadow: $(".pt-shadow").prop("checked"),
+                fontSize: $(".pt-font-size").val(),
+                speed: $(".pt-speed").val()
             });
             window.location.reload();
         });
-        const picker = $(".pi-picker-button", html);
+        const picker = $(".pt-picker-button", html);
         picker[0].addEventListener("click", async function(){
             new FilePicker({
                 type: "image",
                 callback: async function (imagePath) {
-                  $(".pi-path").val(imagePath);
+                  $(".pt-path").val(imagePath);
                 }}).render(true);
         })
     }
     getData() {
-        let source = game.settings.get("pause-icon", "allSettings");
+        let source = game.settings.get("pause-text", "allSettings");
         if (foundry.utils.isObjectEmpty(source)) {
             source = {
                 path: "icons/svg/clockwork.svg",
@@ -61,11 +61,11 @@ class PauseIconSubmenu extends FormApplication {
     // _updateObject(event, formData) {
     //     console.log(`Alternative Pause Icon | Saving compendia sources:`);
     //     console.log(formData);
-    //     //return game.settings.set("pause-icon", "allSettings", formData);
+    //     //return game.settings.set("pause-text", "allSettings", formData);
     // }
 }
 export const registerSettings = function () {
-    game.settings.register("pause-icon", "allSettings", {
+    game.settings.register("pause-text", "allSettings", {
         scope: 'world',
         config: false,
         type: Object,
@@ -81,7 +81,7 @@ export const registerSettings = function () {
             speed: "5"
         },
     });
-    game.settings.registerMenu("pause-icon", "allSettings", {
+    game.settings.registerMenu("pause-text", "allSettings", {
         name: game.i18n.format("PAUSEICON.settings"),
         label: game.i18n.format("PAUSEICON.settingsButton"),
         icon: 'fas fa-atlas',
