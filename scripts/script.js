@@ -9,8 +9,10 @@ Hooks.on('renderPause', function () {
   const speed =
     game.settings.get('pause-text', 'allSettings').speed +
     's linear 0s infinite normal none running rotation';
-  const lines = game.settings.get('pause-text', 'allSettings').text
+  const message = game.settings.get('pause-text', 'allSettings').text;
+  const lines = message.split(/\n/);
   const text = lines[Math.floor(Math.random() * lines.length)];
+  console.log('pause-text | ' + text);
   const dimensionX = game.settings.get('pause-text', 'allSettings').dimensionX;
   const dimensionY = game.settings.get('pause-text', 'allSettings').dimensionY;
   const top = `${-16 - (dimensionY - 128) / 2}px`;

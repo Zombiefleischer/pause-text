@@ -10,7 +10,10 @@
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "10",
   "scripts": [],
-  "esmodules": ["scripts/script.js"],
+  "esmodules": [
+    "scripts/messages.js",
+    "scripts/script.js"
+  ],
   "styles": ["styles/pt-config.css"],
   "languages": [
     {
