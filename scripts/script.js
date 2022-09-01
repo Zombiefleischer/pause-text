@@ -4,20 +4,20 @@ Hooks.on('setup', () => {
 });
 Hooks.on("renderPause", function () {
   if ($("#pause").attr("class") !== "paused") return;
-  const path = game.settings.get("pause-icon", "allSettings").path;
-  const opacity = game.settings.get("pause-icon", "allSettings").opacity / 100;
-  let speed = game.settings.get("pause-icon", "allSettings").speed + "s";
+  const path = game.settings.get("pause-text", "allSettings").path;
+  const opacity = game.settings.get("pause-text", "allSettings").opacity / 100;
+  let speed = game.settings.get("pause-text", "allSettings").speed + "s";
   const message = game.settings.get('pause-text', 'allSettings').text;
   const lines = message.split(/\n/);
   const text = lines[Math.floor(Math.random() * lines.length)];
   console.log('pause-text | ' + text);
-  const dimensionX = game.settings.get("pause-icon", "allSettings").dimensionX;
-  const dimensionY = game.settings.get("pause-icon", "allSettings").dimensionY;
+  const dimensionX = game.settings.get("pause-text", "allSettings").dimensionX;
+  const dimensionY = game.settings.get("pause-text", "allSettings").dimensionY;
   const top = `${-16 - (dimensionY - 128) / 2}px`;
   const left = `calc(50% - ${dimensionX / 2}px)`;
-  const textColor = game.settings.get("pause-icon", "allSettings").textColor;
-  const shadow = game.settings.get("pause-icon", "allSettings").shadow;
-  const fontSize = game.settings.get("pause-icon", "allSettings").fontSize;
+  const textColor = game.settings.get("pause-text", "allSettings").textColor;
+  const shadow = game.settings.get("pause-text", "allSettings").shadow;
+  const fontSize = game.settings.get("pause-text", "allSettings").fontSize;
   const size = `${(text.length * fontSize * 90 / 12) + 70}px 100px`;
   if (path === "None" || dimensionX === 0 || dimensionY === 0) {
     $("#pause.paused img").hide();
