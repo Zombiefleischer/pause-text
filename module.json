@@ -6,7 +6,7 @@
   "authors": [],
   "url": "https://github.com/Zombiefleischer/pause-text",
   "flags": {},
-  "version": "1.0.5",
+  "version": "1.0.6",
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "10",
   "scripts": [],
@@ -19,7 +19,7 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "languages/en.json"
     }
   ],
   "manifest": "https://github.com/Zombiefleischer/pause-text/releases/latest/download/module.json",
