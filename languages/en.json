@@ -1,11 +1,15 @@
 {
+    "PAUSEICON.settings":             "Settings: ",
+    "PAUSEICON.settingsButton":       "Settings Submenu",
+    "PAUSEICON.settingsFormHeader":   "Alternative Ppause Text - Ajustes",
+
     "PAUSEICON.icon_settings_name":   "Icon Settings",
     "PAUSEICON.path_name":            "Data path of pause icon: ",
     "PAUSEICON.path_hint":            "Folder and filename of where your alternative pause icon is within the Foundry VTT data. Click the picker button to select your icon. Type None, for no image.",
     "PAUSEICON.opacity_name":         "Opacity %:",
     "PAUSEICON.opacity_hint":         "Value between 0 and 100, lower means more translucent",
     "PAUSEICON.dimensions_name":      "Dimensions (Width x Height): ",
-    "PAUSEICON.dimensions_hint":      "Width of the icon in pixels.",
+    "PAUSEICON.dimensions_hint":      "Width and Height of the icon in pixels.",
     "PAUSEICON.speed_name":           "Speed:",
     "PAUSEICON.speed_hint":           "Seconds per rotation, 0 is no rotation.",
     "PAUSEICON.icon_vertical_name":   "Vertical adjustment in pixels:",
@@ -21,8 +25,6 @@
     "PAUSEICON.textColor_name":       "Color: ",
     "PAUSEICON.textColor_hint":       "Either Hexcode (eg. #EEEEEE) or HTML color name (eg. CornflowerBlue)",
     "PAUSEICON.saveButton":           "Save Settings",
-    "PAUSEICON.settings":             "Settings: ",
-    "PAUSEICON.settingsButton":       "Settings Submenu",
     "PAUSEICON.fontFamily_name":      "Font:",
     "PAUSEICON.fontFamily_hint":      "Font name to be used. It works well with Custom Fonts module. Check the name is well written."
 }

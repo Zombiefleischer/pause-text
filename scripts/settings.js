@@ -11,7 +11,7 @@ class PauseIconSubmenu extends FormApplication {
             height: "auto",
             template: `/modules/pause-text/templates/settings-submenu.html`,
             id: 'pause-text-settings-submenu',
-            title: 'Alternative Pause Text Settings',
+            title: game.i18n.format("PAUSEICON.settingsFormHeader"),
             resizable: false,
             
         });
