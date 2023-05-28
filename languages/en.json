@@ -1,7 +1,7 @@
 {
     "PAUSEICON.settings":             "Settings: ",
     "PAUSEICON.settingsButton":       "Settings Submenu",
-    "PAUSEICON.settingsFormHeader":   "Alternative Ppause Text - Ajustes",
+    "PAUSEICON.settingsFormHeader":   "Alternative Pause Text - Settings",
 
     "PAUSEICON.icon_settings_name":   "Icon Settings",
     "PAUSEICON.path_name":            "Data path of pause icon: ",
