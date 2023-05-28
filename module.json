@@ -20,6 +20,11 @@
       "lang": "en",
       "name": "English",
       "path": "languages/en.json"
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "languages/es.json"
     }
   ],
   "manifest": "https://github.com/Zombiefleischer/pause-text/releases/latest/download/module.json",
