@@ -13,7 +13,7 @@
     "PAUSEICON.speed_name":           "Speed:",
     "PAUSEICON.speed_hint":           "Seconds per rotation, 0 is no rotation.",
     "PAUSEICON.icon_vertical_name":   "Vertical adjustment in pixels:",
-    "PAUSEICON.icon_vertical_hint":   "Number of pixels to move the icon. Negative values mores the picture up, positive moves it down",
+    "PAUSEICON.icon_vertical_hint":   "Number of pixels to move the icon. Negative values moves the picture up, positive moves it down",
 
     "PAUSEICON.text_settings_name":   "Text Settings",
     "PAUSEICON.text_name":            "Pause messages: ",
