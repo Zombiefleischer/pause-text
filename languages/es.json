@@ -1,0 +1,23 @@
+{
+  "PAUSEICON.path_name":       "Ruta del icono de pausa: ",
+  "PAUSEICON.path_hint":       "Carpeta y archivo de tu icono de pausa alternativo dentro de la carpeta de datos en Foundry VTT. Da clic en el boton para seleccionar tu icono. Escribe 'None' para no poner imagen.",
+  "PAUSEICON.opacity_name":    "Opaccidad %:",
+  "PAUSEICON.opacity_hint":    "Valor entre 0 y 100, menor valor es mas traslucido",
+  "PAUSEICON.text_name":       "Mensajes de Pausa:",
+  "PAUSEICON.text_hint":       "Mensajes que aparecen en pausa.",
+  "PAUSEICON.speed_name":      "Velocidad: ",
+  "PAUSEICON.speed_hint":      "Segundos por rotacion, 0 para no rotar.",
+  "PAUSEICON.dimensionX_name": "Dimension (ancho): ",
+  "PAUSEICON.dimensionX_hint": "Ando del icono en pixeles.",
+  "PAUSEICON.dimensionY_name": "Dimension (altura): ",
+  "PAUSEICON.dimensionY_hint": "Altura del icono en pixeles.",
+  "PAUSEICON.fontSize_name":   "Tamaño de fuente:",
+  "PAUSEICON.fontSize_hint":   "Tamaño de fuente en 'em'. Por defecto: 2",
+  "PAUSEICON.shadow_name":     "Mostrar sombra (si / no):",
+  "PAUSEICON.shadow_hint":     "Cuando se habilita, se mostrara el cuadro de sombra detras del texto.",
+  "PAUSEICON.textColor_name":  "Color: ",
+  "PAUSEICON.textColor_hint":  "Hexcode (eg. #EEEEEE) o nombre en HTML(eg. CornflowerBlue)",
+  "PAUSEICON.saveButton":      "Guardar Configuracion",
+  "PAUSEICON.settings":        "Configuraciones: ",
+  "PAUSEICON.settingsButton":  "Configuraciones de Submenu"
+}
