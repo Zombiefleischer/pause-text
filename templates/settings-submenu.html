@@ -1,4 +1,5 @@
 <form class="flexcol">
+    <h2><label>{{localize "PAUSEICON.icon_settings_name"}}</label></h2>
     <div class="form-group">
         <label class="pause-text pt-label-name">{{localize "PAUSEICON.path_name"}}</label>
         <div class="form-fields">
@@ -11,17 +12,55 @@
     <div class="form-group">
         <label class="pause-text pt-label-name">{{localize "PAUSEICON.opacity_name"}}</label>
         <div class="form-fields">
-            <input class="pause-text pt-opacity" type="Number" value="{{opacity}}"> 
+            <input class="pause-text pt-opacity" type="Number" value="{{opacity}}">
         </div>
         <p class="notes">{{localize "PAUSEICON.opacity_hint"}}</p>
     </div>
     <br>
+    <div class="form-group">
+        <label class="pause-text pt-label-name">{{localize "PAUSEICON.dimensions_name"}}</label>
+        <div class="form-fields">
+            <input class="pause-text pt-dimensionX" type="Number" value="{{dimensionX}}">
+            <input class="pause-text pt-dimensionY" type="Number" value="{{dimensionY}}">
+        </div>
+        <p class="notes">{{localize "PAUSEICON.dimensions_hint"}}</p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="pause-text pt-label-name">{{localize "PAUSEICON.speed_name"}}</label>
+        <div class="form-fields">
+            <input class="pause-text pt-speed" type="Number" value="{{speed}}">
+        </div>
+        <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="pause-text pt-label-name">{{localize "PAUSEICON.icon_vertical_name"}}</label>
+        <div class="form-fields">
+            <input class="pause-text pt-iconSpacingY" type="Number" step="10" value="{{iconSpacingY}}">
+        </div>
+        <p class="notes">{{localize "PAUSEICON.icon_vertical_hint"}}</p>
+    </div>
+    <br>
+
+
+
+
+    <h2><label>{{localize "PAUSEICON.text_settings_name"}}</label></h2>
     <div class="form-group">
         <label class="pause-text pt-label-name">{{localize "PAUSEICON.text_name"}}</label>
         <div class="form-fields">
             <textarea class="pause-text pt-text" id="pause-text pt-text">{{text}}</textarea>
         </div>
         <p class="notes">{{localize "PAUSEICON.text_hint"}}</p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="pause-text pt-label-name">{{localize "PAUSEICON.fontFamily_name"}}</label>
+        <div class="form-fields">
+            <input class="pause-text pt-fontFamily" type="text" value="{{fontFamily}}">
+        </div>
+        <p class="notes">{{localize "PAUSEICON.fontFamily_hint"}}</p>
     </div>
     <br>
     <div class="form-group">
@@ -40,30 +79,6 @@
             <input class="pause-text pt-font-size" type="Text" value="{{fontSize}}"> 
         </div>
         <p class="notes">{{localize "PAUSEICON.fontSize_hint"}}</p>
-    </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.dimensionX_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-dimensionX" type="Number" value="{{dimensionX}}"> 
-        </div>
-        <p class="notes">{{localize "PAUSEICON.dimensionX_hint"}}</p>
-    </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.dimensionY_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-dimensionY" type="Number" value="{{dimensionY}}"> 
-        </div>
-        <p class="notes">{{localize "PAUSEICON.dimensionY_hint"}}</p>
-    </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.speed_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-speed" type="Number" value="{{speed}}"> 
-        </div>
-        <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
     </div>
     <br>
     <div class="form-group">
