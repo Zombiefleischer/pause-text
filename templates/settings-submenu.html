@@ -33,6 +33,17 @@
         </div>
         <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
     </div>
+    <div class="form-group">
+        <label class="pause-text pt-label-name">{{localize "PAUSEICON.reverse_name"}}</label>
+        <div class="form-fields">
+            {{#if reverse}}
+            <input class="pause-text pt-reverse" type="checkbox" checked>
+            {{else}}
+            <input class="pause-text pt-reverse" type="checkbox">
+            {{/if}}
+        </div>
+        <p class="notes">{{localize "PAUSEICON.reverse_hint"}}</p>
+    </div>
     <br>
     <div class="form-group">
         <label class="pause-text pt-label-name">{{localize "PAUSEICON.icon_vertical_name"}}</label>
