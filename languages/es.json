@@ -12,6 +12,8 @@
   "PAUSEICON.dimensions_hint":      "Ancho y Alto del icono en pixeles.",
   "PAUSEICON.speed_name":           "Velocidad:",
   "PAUSEICON.speed_hint":           "Segundos por rotacion, 0 para no rotar.",
+  "PAUSEICON.reverse_name":         "Reverso",
+  "PAUSEICON.reverse_hint":         "Revertir la rotación.",
   "PAUSEICON.icon_vertical_name":   "Ajuste verticial en pixeles:",
   "PAUSEICON.icon_vertical_hint":   "Numero de pixeles para mover el icono. Valores negativos mueven la imagen hacia arriba, positivos hacia abajo.",
 

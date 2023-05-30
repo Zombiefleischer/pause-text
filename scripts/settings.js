@@ -31,7 +31,8 @@ class PauseIconSubmenu extends FormApplication {
                 textColor: $(".pt-text-color", html).val(),
                 shadow: $(".pt-shadow").prop("checked"),
                 fontSize: $(".pt-font-size").val(),
-                speed: $(".pt-speed").val()
+                speed: $(".pt-speed").val(),
+                reverse: $(".pt-reverse").prop("checked")
             });
             window.location.reload();
         });
@@ -58,7 +59,8 @@ class PauseIconSubmenu extends FormApplication {
                 textColor: "#EEEEEE",
                 shadow: true,
                 fontSize: 2,
-                speed: "5"
+                speed: "5",
+                reverse: false
             };
         }
         return source;
@@ -85,7 +87,8 @@ export const registerSettings = function () {
             textColor: "#EEEEEE",
             shadow: true,
             fontSize: 2,
-            speed: "5"
+            speed: "5",
+            reverse: false
         },
     });
     game.settings.registerMenu("pause-text", "allSettings", {

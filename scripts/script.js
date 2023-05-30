@@ -16,6 +16,7 @@ Hooks.on("renderPause", function () {
   const path = game.settings.get("pause-text", "allSettings").path;
   const opacity = game.settings.get("pause-text", "allSettings").opacity / 100;
   let speed = game.settings.get("pause-text", "allSettings").speed + "s";
+  const reverse = game.settings.get("pause-text", "allSettings").reverse;
   const dimensionX = game.settings.get("pause-text", "allSettings").dimensionX;
   const dimensionY = game.settings.get("pause-text", "allSettings").dimensionY;
   const iconSpacingY = game.settings.get("pause-text", "allSettings").iconSpacingY;
@@ -29,11 +30,21 @@ Hooks.on("renderPause", function () {
   else {
     $("#pause.paused img").attr("src", path);
     if (isNewerVersion(game.version, "10")) {
-      $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "--fa-animation-duration": speed });
+      if (reverse) {
+        $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "--fa-animation-duration": speed, "--fa-animation-direction": "reverse" });
+      } else {
+        $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "--fa-animation-duration": speed });
+      }
     }
     else {
-      speed += " linear 0s infinite normal none running rotation";
-      $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "-webkit-animation": speed });
+      if (reverse) {
+        speed += " linear 0s infinite reverse none running rotation";
+        $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "-webkit-animation": speed });
+      }
+      else {
+        speed += " linear 0s infinite normal none running rotation";
+        $("#pause.paused img").css({ "top": top, "left": left, "width": dimensionX, "height": dimensionY, "opacity": opacity, "-webkit-animation": speed });
+      }
     }
   }
 
