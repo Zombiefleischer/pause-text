@@ -97,13 +97,16 @@
   </div>
   <br />
   <div class="form-group">
-    <label for="sync-enabled">{{localize "PAUSEICON.sync"}}</label>
-    <input
-      type="checkbox"
-      id="sync-enabled"
-      name="syncEnabled"
-      data-dtype="Boolean"
-    />
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.sync"}}</label
+    >
+    <div class="form-fields">
+      {{#if sync}}
+      <input class="pause-text pt-sync" type="checkbox" checked />
+      {{else}}
+      <input class="pause-text pt-sync" type="checkbox" />
+      {{/if}}
+    </div>
     <p class="notes">{{localize "PAUSEICON.sync_hint"}}</p>
   </div>
   <br />

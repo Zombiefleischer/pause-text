@@ -1,19 +1,49 @@
 {
-  "name": "pause-text-dev",
-  "title": "Alternative Pause Text Dev-Version",
-  "description": "Set the pause message to a list of messages, whatever you prefer. You can also change the image. Supported formats are jpg, png, webp and gif. Forked from pause-icon.",
-  "author": "Zombiefleischer",
-  "authors": [],
-  "url": "https://github.com/Zombiefleischer/pause-text",
-  "flags": {},
-  "version": "1.1.0",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "11",
-  "scripts": [],
-  "esmodules": [
-    "scripts/messages.js",
-    "scripts/script.js"
+  "id": "pause-text",
+  "name": "pause-text",
+  "title": "Alternative Pause Text",
+  "description": "Set the pause message to a list of messages, whatever you prefer. Can be synced between players. You can also change the image. Supported formats are jpg, png, webp and gif. Forked from pause-icon.",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 11
+  },
+  "authors": [
+    {
+      "name": "Zombiefleischer",
+      "url": "https://github.com/Zombiefleischer/pause-text",
+      "email": "zombiefleischer@zombiefleischer.de",
+      "discord": "zombiefleischer",
+      "flags": {
+        "github": "Zombiefleischer"
+      }
+    }
   ],
+  "library": false,
+  "socket": true,
+  "relationships": {
+    "systems": [],
+    "requires": [
+      {
+        "id": "socketlib",
+        "type": "module",
+        "reason": "For the added sync functionality.",
+        "compatibility": {}
+      }
+    ],
+    "recommends": [],
+    "conflicts": [
+      {
+        "id": "pause-icon",
+        "type": "module",
+        "manifest": "https://gitlab.com/Freeze020/pause-icon/-/raw/master/module.json",
+        "reason": "It's the original module with a bit less features.",
+        "compatibility": {}
+      }
+    ]
+  },
+  "esmodules": ["scripts/messages.js", "scripts/script.js"],
+  "scripts": [],
   "styles": ["styles/pt-config.css"],
   "languages": [
     {
@@ -22,17 +52,20 @@
       "path": "languages/en.json"
     },
     {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "languages/de.json"
+    },
+    {
       "lang": "es",
       "name": "Spanish",
       "path": "languages/es.json"
     }
   ],
+  "url": "https://github.com/Zombiefleischer/pause-text",
   "manifest": "",
   "download": "",
-  "id": "pause-text-dev",
-  "compatibility": {
-    "minimum": 9,
-    "verified": 10,
-    "verified": 11
-  }
+  "readme": "https://raw.githubusercontent.com/Zombiefleischer/pause-text/master/README.md",
+  "license": "https://raw.githubusercontent.com/Zombiefleischer/pause-text/master/LICENSE",
+  "bugs": "https://github.com/Zombiefleischer/pause-text/issues"
 }
