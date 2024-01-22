@@ -1,6 +1,6 @@
 {
-  "name": "pause-text",
-  "title": "Alternative Pause Text",
+  "name": "pause-text-dev",
+  "title": "Alternative Pause Text Dev-Version",
   "description": "Set the pause message to a list of messages, whatever you prefer. You can also change the image. Supported formats are jpg, png, webp and gif. Forked from pause-icon.",
   "author": "Zombiefleischer",
   "authors": [],
@@ -27,9 +27,9 @@
       "path": "languages/es.json"
     }
   ],
-  "manifest": "https://github.com/Zombiefleischer/pause-text/releases/latest/download/module.json",
-  "download": "https://github.com/Zombiefleischer/pause-text/releases/download/v1.0.7/module.zip",
-  "id": "pause-text",
+  "manifest": "",
+  "download": "",
+  "id": "pause-text-dev",
   "compatibility": {
     "minimum": 9,
     "verified": 10,
