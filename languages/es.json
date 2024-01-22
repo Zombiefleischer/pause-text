@@ -20,7 +20,7 @@
   "PAUSEICON.text_settings_name": "Ajustes de Texto",
   "PAUSEICON.text_name": "Mensajes de Pausa: ",
   "PAUSEICON.text_hint": "Al pausar, se mostrara un mensaje aleatorio de la lista.",
-  "PAUSEICON.sync": "Habilitar Sincronización",
+  "PAUSEICON.sync": "Habilitar Sincronización: ",
   "PAUSEICON.sync_hint": "Habilitar o deshabilitar la sincronización del texto de pausa entre los jugadores.",
   "PAUSEICON.fontSize_name": "Tamaño de fuente (em): ",
   "PAUSEICON.fontSize_hint": "Por defecto: 2",
