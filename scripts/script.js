@@ -1,5 +1,6 @@
 import { registerSettings } from "./settings.js";
 let socket;
+let pauseTextTimer = null;
 
 Hooks.on("setup", () => {
   registerSettings();
@@ -11,7 +12,7 @@ Hooks.once("socketlib.ready", () => {
   socket.register("displayPauseText", displayPauseText);
 });
 
-Hooks.on("renderPause", async function () {
+Hooks.on("renderPause", function () {
   if ($("#pause").attr("class") !== "paused") return;
 
   // Get all settings
@@ -29,15 +30,22 @@ Hooks.on("renderPause", async function () {
   const left = `calc(50% - ${dimensionX / 2}px)`;
 
   // Get random text
-  const message = settings.allText;
-  const lines = message.split(/\n/);
-  settings.selectedText = lines[Math.floor(Math.random() * lines.length)];
+  settings.selectedText = selectRandomPauseText(settings.allText);
 
   // Get sync settings and open socket
   if ($("#pause").attr("class") === "paused" && settings.sync) {
-    await socket.executeAsGM("selectAndBroadcastPauseText", settings);
+    socket.executeAsGM("selectAndBroadcastPauseText", settings);
   } else {
     displayPauseText(settings);
+  }
+
+  // Start or stop the text rotation
+  const interval = settings.textChangeInterval;
+  if ($("#pause").attr("class") === "paused") {
+    startPauseTextRotation(interval);
+  } else if (pauseTextTimer) {
+    clearInterval(pauseTextTimer);
+    pauseTextTimer = null;
   }
 
   // Change the displayed image
@@ -92,10 +100,15 @@ Hooks.on("renderPause", async function () {
   }
 });
 
-async function selectAndBroadcastPauseText(settings) {
+function selectRandomPauseText(allText) {
+  const lines = allText.split(/\n/);
+  return lines[Math.floor(Math.random() * lines.length)];
+}
+
+function selectAndBroadcastPauseText(settings) {
   if (game.user.isGM) {
     settings.randomText = settings.selectedText;
-    await socket.executeForEveryone("displayPauseText", settings);
+    socket.executeForEveryone("displayPauseText", settings);
   }
 }
 
@@ -150,4 +163,32 @@ function displayPauseText(settings) {
       $("#pause.paused").css("background", "none");
     }
   }
+}
+
+function startPauseTextRotation(interval) {
+  if (pauseTextTimer) {
+    clearInterval(pauseTextTimer); // Clear existing timer
+    pauseTextTimer = null;
+  }
+
+  // Disable the timer if the interval is 0 or negative
+  if (interval <= 0) {
+    return;
+  }
+
+  pauseTextTimer = setInterval(() => {
+    if (game.paused) {
+      const settings = game.settings.get("pause-text", "allSettings");
+      if (game.user.isGM && settings.sync) {
+        settings.selectedText = selectRandomPauseText(settings.allText);
+        selectAndBroadcastPauseText(settings);
+      } else if (!settings.sync) {
+        settings.selectedText = selectRandomPauseText(settings.allText);
+        displayPauseText(settings);
+      }
+    } else {
+      clearInterval(pauseTextTimer);
+      pauseTextTimer = null;
+    }
+  }, interval * 1000);
 }

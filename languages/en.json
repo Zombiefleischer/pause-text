@@ -22,6 +22,8 @@
   "PAUSEICON.text_hint": "Messages that appears when paused.",
   "PAUSEICON.sync": "Enable Synchronization: ",
   "PAUSEICON.sync_hint": "Enable or disable synchronization of the pause text between players.",
+  "PAUSEICON.textChangeInterval": "Change Text Interval: ",
+  "PAUSEICON.textChangeInterval_hint": "Seconds until the next random text is displayed. 0 and negative values disables this.",
   "PAUSEICON.fontSize_name": "Font size (em): ",
   "PAUSEICON.fontSize_hint": "Size of the font in em, default is 2.",
   "PAUSEICON.shadow_name": "Enable drop shadow: ",

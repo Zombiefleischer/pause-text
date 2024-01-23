@@ -22,6 +22,8 @@
   "PAUSEICON.text_hint": "Nachrichten, die bei Pause erscheinen.",
   "PAUSEICON.sync": "Synchronisation aktivieren: ",
   "PAUSEICON.sync_hint": "Synchronisation des Pausentextes zwischen den Spielern aktivieren oder deaktivieren.",
+  "PAUSEICON.textChangeInterval": "Textintervall ändern: ",
+  "PAUSEICON.textChangeInterval_hint": "Sekunden, bis der nächste Zufallstext angezeigt wird. 0 und negative Werte deaktivieren das.",
   "PAUSEICON.fontSize_name": "Schriftgröße (em): ",
   "PAUSEICON.fontSize_hint": "Größe der Schrift in em, Standard ist 2.",
   "PAUSEICON.shadow_name": "Schlagschatten aktivieren: ",

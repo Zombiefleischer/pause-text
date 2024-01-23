@@ -22,6 +22,8 @@
   "PAUSEICON.text_hint": "Al pausar, se mostrara un mensaje aleatorio de la lista.",
   "PAUSEICON.sync": "Habilitar Sincronización: ",
   "PAUSEICON.sync_hint": "Habilitar o deshabilitar la sincronización del texto de pausa entre los jugadores.",
+  "PAUSEICON.textChangeInterval": "Cambiar intervalo de texto: ",
+  "PAUSEICON.textChangeInterval_hint": "Segundos hasta que se muestra el siguiente texto aleatorio. 0 y valores negativos lo desactivan.",
   "PAUSEICON.fontSize_name": "Tamaño de fuente (em): ",
   "PAUSEICON.fontSize_hint": "Por defecto: 2",
   "PAUSEICON.shadow_name": "Sombra paralela: ",

@@ -48,7 +48,7 @@
       >{{localize "PAUSEICON.speed_name"}}</label
     >
     <div class="form-fields">
-      <input class="pause-text pt-speed" type="Number" value="{{speed}}" />
+      <input class="pause-text pt-speed" type="number" value="{{speed}}" />
     </div>
     <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
   </div>
@@ -108,6 +108,20 @@
       {{/if}}
     </div>
     <p class="notes">{{localize "PAUSEICON.sync_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.textChangeInterval"}}</label
+    >
+    <div class="form-fields">
+      <input
+        class="pause-text pt-textChangeInterval"
+        type="number"
+        value="{{textChangeInterval}}"
+      />
+    </div>
+    <p class="notes">{{localize "PAUSEICON.textChangeInterval_hint"}}</p>
   </div>
   <br />
   <div class="form-group">
