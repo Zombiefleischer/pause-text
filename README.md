@@ -2,3 +2,6 @@ A simple fork of the [pause-icon](https://gitlab.com/Freeze020/pause-icon/) modu
 You can also change the pause icon. Supported formats are jpg, png, webp and gif.
 
 Now with Synchronization between players!
+
+Dependencies:
+- socketlib
