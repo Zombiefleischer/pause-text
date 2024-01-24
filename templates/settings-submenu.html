@@ -1,112 +1,187 @@
+<!-- Icon Settings -->
 <form class="flexcol">
-    <h2><label>{{localize "PAUSEICON.icon_settings_name"}}</label></h2>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.path_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-path" type="Text" value="{{path}}"> 
-            <button class="pause-text pt-picker-button"><i class="fas fa-file-import fa-fw"></i></button>
-        </div>
-        <p class="notes">{{localize "PAUSEICON.path_hint"}}</p>
+  <h2><label>{{localize "PAUSEICON.icon_settings_name"}}</label></h2>
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.path_name"}}</label
+    >
+    <div class="form-fields">
+      <input class="pause-text pt-path" type="Text" value="{{path}}" />
+      <button class="pause-text pt-picker-button">
+        <i class="fas fa-file-import fa-fw"></i>
+      </button>
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.opacity_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-opacity" type="Number" value="{{opacity}}">
-        </div>
-        <p class="notes">{{localize "PAUSEICON.opacity_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.path_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.opacity_name"}}</label
+    >
+    <div class="form-fields">
+      <input class="pause-text pt-opacity" type="Number" value="{{opacity}}" />
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.dimensions_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-dimensionX" type="Number" value="{{dimensionX}}">
-            <input class="pause-text pt-dimensionY" type="Number" value="{{dimensionY}}">
-        </div>
-        <p class="notes">{{localize "PAUSEICON.dimensions_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.opacity_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.dimensions_name"}}</label
+    >
+    <div class="form-fields">
+      <input
+        class="pause-text pt-dimensionX"
+        type="Number"
+        value="{{dimensionX}}"
+      />
+      <input
+        class="pause-text pt-dimensionY"
+        type="Number"
+        value="{{dimensionY}}"
+      />
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.speed_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-speed" type="Number" value="{{speed}}">
-        </div>
-        <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.dimensions_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.speed_name"}}</label
+    >
+    <div class="form-fields">
+      <input class="pause-text pt-speed" type="number" value="{{speed}}" />
     </div>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.reverse_name"}}</label>
-        <div class="form-fields">
-            {{#if reverse}}
-            <input class="pause-text pt-reverse" type="checkbox" checked>
-            {{else}}
-            <input class="pause-text pt-reverse" type="checkbox">
-            {{/if}}
-        </div>
-        <p class="notes">{{localize "PAUSEICON.reverse_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.speed_hint"}}</p>
+  </div>
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.reverse_name"}}</label
+    >
+    <div class="form-fields">
+      {{#if reverse}}
+      <input class="pause-text pt-reverse" type="checkbox" checked />
+      {{else}}
+      <input class="pause-text pt-reverse" type="checkbox" />
+      {{/if}}
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.icon_vertical_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-iconSpacingY" type="Number" step="10" value="{{iconSpacingY}}">
-        </div>
-        <p class="notes">{{localize "PAUSEICON.icon_vertical_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.reverse_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.icon_vertical_name"}}</label
+    >
+    <div class="form-fields">
+      <input
+        class="pause-text pt-iconSpacingY"
+        type="Number"
+        step="10"
+        value="{{iconSpacingY}}"
+      />
     </div>
-    <br>
+    <p class="notes">{{localize "PAUSEICON.icon_vertical_hint"}}</p>
+  </div>
+  <br />
 
+  <!-- Text Settings -->
+  <h2><label>{{localize "PAUSEICON.text_settings_name"}}</label></h2>
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.text_name"}}</label
+    >
+    <div class="form-fields">
+      <textarea class="pause-text pt-text" id="pause-text pt-text">
+{{allText}}</textarea
+      >
+    </div>
+    <p class="notes">{{localize "PAUSEICON.text_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.sync"}}</label
+    >
+    <div class="form-fields">
+      {{#if sync}}
+      <input class="pause-text pt-sync" type="checkbox" checked />
+      {{else}}
+      <input class="pause-text pt-sync" type="checkbox" />
+      {{/if}}
+    </div>
+    <p class="notes">{{localize "PAUSEICON.sync_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.textChangeInterval"}}</label
+    >
+    <div class="form-fields">
+      <input
+        class="pause-text pt-textChangeInterval"
+        type="number"
+        value="{{textChangeInterval}}"
+      />
+    </div>
+    <p class="notes">{{localize "PAUSEICON.textChangeInterval_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.fontFamily_name"}}</label
+    >
+    <div class="form-fields">
+      <input
+        class="pause-text pt-fontFamily"
+        type="text"
+        value="{{fontFamily}}"
+      />
+    </div>
+    <p class="notes">{{localize "PAUSEICON.fontFamily_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.textColor_name"}}</label
+    >
 
-
-
-    <h2><label>{{localize "PAUSEICON.text_settings_name"}}</label></h2>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.text_name"}}</label>
-        <div class="form-fields">
-            <textarea class="pause-text pt-text" id="pause-text pt-text">{{text}}</textarea>
-        </div>
-        <p class="notes">{{localize "PAUSEICON.text_hint"}}</p>
+    <div class="form-fields">
+      <input type="color" value="{{textColor}}" data-edit="color-input" />
+      <input
+        name="color-input"
+        class="pause-text pt-text-color"
+        type="Text"
+        value="{{textColor}}"
+      />
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.fontFamily_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-fontFamily" type="text" value="{{fontFamily}}">
-        </div>
-        <p class="notes">{{localize "PAUSEICON.fontFamily_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.textColor_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.fontSize_name"}}</label
+    >
+    <div class="form-fields">
+      <input class="pause-text pt-font-size" type="Text" value="{{fontSize}}" />
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.textColor_name"}}</label>
-        
-        <div class="form-fields">
-            <input type="color" value="{{textColor}}" data-edit="color-input">
-            <input name="color-input" class="pause-text pt-text-color" type="Text" value="{{textColor}}"> 
-        </div>
-        <p class="notes">{{localize "PAUSEICON.textColor_hint"}}</p>
+    <p class="notes">{{localize "PAUSEICON.fontSize_hint"}}</p>
+  </div>
+  <br />
+  <div class="form-group">
+    <label class="pause-text pt-label-name"
+      >{{localize "PAUSEICON.shadow_name"}}</label
+    >
+    <div class="form-fields">
+      {{#if shadow}}
+      <input class="pause-text pt-shadow" type="checkbox" checked />
+      {{else}}
+      <input class="pause-text pt-shadow" type="checkbox" />
+      {{/if}}
     </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.fontSize_name"}}</label>
-        <div class="form-fields">
-            <input class="pause-text pt-font-size" type="Text" value="{{fontSize}}"> 
-        </div>
-        <p class="notes">{{localize "PAUSEICON.fontSize_hint"}}</p>
-    </div>
-    <br>
-    <div class="form-group">
-        <label class="pause-text pt-label-name">{{localize "PAUSEICON.shadow_name"}}</label>
-        <div class="form-fields">
-            {{#if shadow}}
-            <input class="pause-text pt-shadow" type="checkbox" checked>
-            {{else}}
-            <input class="pause-text pt-shadow" type="checkbox">
-            {{/if}}
-        </div>
-        <p class="notes">{{localize "PAUSEICON.shadow_hint"}}</p>
-    </div>
-    <br>
+    <p class="notes">{{localize "PAUSEICON.shadow_hint"}}</p>
+  </div>
+  <br />
 </form>
 <header class="pause-text pt-submenu-header">
-    <button type="submit" name="submit" class="pause-text pt-settings-save">
-        {{localize "PAUSEICON.saveButton"}}
-    </button>
+  <button type="submit" name="submit" class="pause-text pt-settings-save">
+    {{localize "PAUSEICON.saveButton"}}
+  </button>
 </header>
