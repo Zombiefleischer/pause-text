@@ -13,7 +13,16 @@ Hooks.once("socketlib.ready", () => {
 });
 
 Hooks.on("renderPause", function () {
-  if ($("#pause").attr("class") !== "paused") return;
+  if (!$("#pause").hasClass("paused")) return;
+
+  // Make it work with dnd5e 3.x version
+  if (
+    game.data.system.id === "dnd5e" &&
+    isNewerVersion(game.data.system.version, "2.4.1")
+  ) {
+    $("#pause").removeClass("dnd5e2");
+    $("#pause > img").addClass("fa-spin");
+  }
 
   // Get all settings
   const settings = game.settings.get("pause-text", "allSettings");
@@ -33,7 +42,7 @@ Hooks.on("renderPause", function () {
   settings.selectedText = selectRandomPauseText(settings.allText);
 
   // Get sync settings and open socket
-  if ($("#pause").attr("class") === "paused" && settings.sync) {
+  if ($("#pause").hasClass("paused") && settings.sync) {
     socket.executeAsGM("selectAndBroadcastPauseText", settings);
   } else {
     displayPauseText(settings);
@@ -41,7 +50,7 @@ Hooks.on("renderPause", function () {
 
   // Start or stop the text rotation
   const interval = settings.textChangeInterval;
-  if ($("#pause").attr("class") === "paused") {
+  if ($("#pause").hasClass("paused")) {
     startPauseTextRotation(interval);
   } else if (pauseTextTimer) {
     clearInterval(pauseTextTimer);
