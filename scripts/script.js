@@ -107,6 +107,11 @@ Hooks.on("renderPause", function () {
       }
     }
   }
+
+  // Set Animation
+  if (settings.animation || true) {
+    animationFunc(settings);
+  }
 });
 
 function selectRandomPauseText(allText) {
@@ -200,4 +205,9 @@ function startPauseTextRotation(interval) {
       pauseTextTimer = null;
     }
   }, interval * 1000);
+}
+
+// Handle the Animations
+function animationFunc(settings) {
+  $("#pause").addClass("pulsate");
 }
