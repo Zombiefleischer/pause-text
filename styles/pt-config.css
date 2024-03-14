@@ -18,19 +18,19 @@ label.pause-text.pt-label-name {
 /* Animation Classes */
 #pause.pulsate {
   background: none;
-  animation: pulsate 3s infinite ease-in-out;
+  animation: pulsate var(--animation-duration, 3s) infinite ease-in-out;
 }
 
 /* ------------------- */
 /* Animation Keyframes */
 @keyframes pulsate {
   0% {
-    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    filter: drop-shadow(0 0 0 transparent);
   }
   50% {
     filter: drop-shadow(0 0 10px rgba(0, 255, 255, 1));
   }
   100% {
-    filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+    filter: drop-shadow(0 0 0 transparent);
   }
 }

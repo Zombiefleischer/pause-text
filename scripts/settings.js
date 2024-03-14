@@ -49,7 +49,7 @@ class PauseIconSubmenu extends FormApplication {
   }
   getData() {
     let source = game.settings.get("pause-text", "allSettings");
-    if (foundry.utils.isObjectEmpty(source)) {
+    if (foundry.utils.isEmpty(source)) {
       source = {
         path: "icons/svg/clockwork.svg",
         opacity: 50,

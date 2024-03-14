@@ -1,14 +1,26 @@
+
+<form class="flexcol">
 <!-- Animation Settings -->
+  <h2><label>{{localize "PAUSEICON.animation_settings_name"}}</label></h2>
+  <div class="form-group">
+    <label class="pause-text pt-label-name">{{localize "PAUSEICON.animation_settings_dropdown"}}</label>
+    <div class="form-fields">
+      <select class="pause-text pt-animation" id="optionsAnimationDropdown">
+        <option value="">{{localize "PAUSEICON.animation.none"}}</option>
+        <option value="rainbow">{{localize "PAUSEICON.animation.rainbow"}}</option>
+        <option value="pulsate">{{localize "PAUSEICON.animation.pulsate"}}</option>
+      </select>
+    </div>
+    <div
 
 <!-- Icon Settings -->
-<form class="flexcol">
   <h2><label>{{localize "PAUSEICON.icon_settings_name"}}</label></h2>
   <div class="form-group">
     <label class="pause-text pt-label-name"
       >{{localize "PAUSEICON.path_name"}}</label
     >
     <div class="form-fields">
-      <input class="pause-text pt-path" type="Text" value="{{path}}" />
+      <input class="pause-text pt-path" type="text" value="{{path}}" />
       <button class="pause-text pt-picker-button">
         <i class="fas fa-file-import fa-fw"></i>
       </button>
@@ -21,7 +33,7 @@
       >{{localize "PAUSEICON.opacity_name"}}</label
     >
     <div class="form-fields">
-      <input class="pause-text pt-opacity" type="Number" value="{{opacity}}" />
+      <input class="pause-text pt-opacity" type="number" value="{{opacity}}" />
     </div>
     <p class="notes">{{localize "PAUSEICON.opacity_hint"}}</p>
   </div>
@@ -33,12 +45,12 @@
     <div class="form-fields">
       <input
         class="pause-text pt-dimensionX"
-        type="Number"
+        type="number"
         value="{{dimensionX}}"
       />
       <input
         class="pause-text pt-dimensionY"
-        type="Number"
+        type="number"
         value="{{dimensionY}}"
       />
     </div>
@@ -75,7 +87,7 @@
     <div class="form-fields">
       <input
         class="pause-text pt-iconSpacingY"
-        type="Number"
+        type="number"
         step="10"
         value="{{iconSpacingY}}"
       />
@@ -150,7 +162,7 @@
       <input
         name="color-input"
         class="pause-text pt-text-color"
-        type="Text"
+        type="text"
         value="{{textColor}}"
       />
     </div>
@@ -162,7 +174,7 @@
       >{{localize "PAUSEICON.fontSize_name"}}</label
     >
     <div class="form-fields">
-      <input class="pause-text pt-font-size" type="Text" value="{{fontSize}}" />
+      <input class="pause-text pt-font-size" type="text" value="{{fontSize}}" />
     </div>
     <p class="notes">{{localize "PAUSEICON.fontSize_hint"}}</p>
   </div>
