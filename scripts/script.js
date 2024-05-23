@@ -57,6 +57,9 @@ Hooks.on("renderPause", function () {
     pauseTextTimer = null;
   }
 
+  // For Tidbits
+  observePauseTextChanges(settings.fontSize, settings.fontFamily);
+  
   // Change the displayed image
   if (path === "None" || dimensionX === 0 || dimensionY === 0) {
     $("#pause.paused img").hide();
@@ -121,6 +124,34 @@ function selectAndBroadcastPauseText(settings) {
   }
 }
 
+function getTextboxSize(length, fontSize,   figcaptionHeight) {
+  const calculatedWidth = (length * fontSize * 90) / 12 + 70;
+  const maxWidth = $("#pause").width() * 0.5 + 300;
+  const finalWidth = Math.min(calculatedWidth, maxWidth);
+
+  const finalHeight = figcaptionHeight > 70 ? 200 : 100;
+  
+  const size = `${finalWidth}px ${finalHeight}px`;
+  return size;
+}
+
+function getPauseSize(figcaptionHeight) {
+  const figureHeight = figcaptionHeight > 70 ? 200 : 100;
+  const paddingTop = figcaptionHeight > 70 ? 50 : 0;
+
+  const size = {
+    height: `${figureHeight}px`,
+    paddingTop: `${paddingTop}px`
+  };
+  return size;
+}
+
+function disableBackgroundIfTidbitPresent() {
+  if ($("#pause.paused .tidbit-pause-text").length) {
+    $("#pause.paused").css("background", "none");
+  }
+}
+
 function displayPauseText(settings) {
   // Get text settings
   const text = settings.selectedText;
@@ -128,23 +159,42 @@ function displayPauseText(settings) {
   const textColor = settings.textColor;
   const shadow = settings.shadow;
   const fontSize = settings.fontSize;
-  const size = `${(text.length * fontSize * 90) / 12 + 70}px 100px`;
+  // const size = `${(text.length * fontSize * 90) / 12 + 70}px 100px`;
+  // const size = getTextboxSize(text.length, fontSize);
 
   // Change pause text
   if (isNewerVersion(game.version, "10")) {
     $("#pause.paused figcaption").text(text);
     if (text.length !== 0 && shadow) {
-      $("#pause.paused").css({ "background-size": size });
       $("#pause.paused figcaption").css({
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
+        "width": `50%`,
+        "margin": `auto`,
+        "line-height": `24px`,
+        "padding-top": `30px`,
+        "overflow-wrap": "break-word",
       });
+      const figcaptionHeight = $("#pause.paused figcaption").outerHeight();
+      const size = getTextboxSize(text.length, fontSize, figcaptionHeight);
+      const pauseSize = getPauseSize(figcaptionHeight);
+      $("#pause.paused").css({ "background-size": size });
+      $("#pause").css({
+        "height": pauseSize.height,
+        "padding-top": pauseSize.paddingTop,
+      });
+    disableBackgroundIfTidbitPresent();
     } else if (text.length !== 0 && !shadow) {
       $("#pause.paused figcaption").css({
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
+        "width": `50%`,
+        "margin": `auto`,
+        "line-height": `24px`,
+        "padding-top": `24px`,
+        "overflow-wrap": "break-word",
       });
       $("#pause.paused figcaption").css({ color: textColor });
       $("#pause.paused").css("background", "none");
@@ -159,12 +209,22 @@ function displayPauseText(settings) {
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
+        "width": `50%`,
+        "margin": `auto`,
+        "line-height": `24px`,
+        "padding-top": `24px`,
+        "overflow-wrap": "break-word",
       });
     } else if (text.length !== 0 && !shadow) {
       $("#pause.paused h3").css({
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
+        "width": `50%`,
+        "margin": `auto`,
+        "line-height": `24px`,
+        "padding-top": `24px`,
+        "overflow-wrap": "break-word",
       });
       $("#pause.paused h3").css({ color: textColor });
       $("#pause.paused").css("background", "none");
@@ -173,6 +233,46 @@ function displayPauseText(settings) {
     }
   }
 }
+
+// Function to change tidbits Textstyle (Module: https://foundryvtt.com/packages/tidbits)
+function tidbitsTextStyle(fontSize, fontFamily) {
+  $("#pause.paused .tidbit-pause-text").css({
+    "font-size": `${fontSize}em`,
+    "font-family": `${fontFamily}`,
+  });
+}
+
+// Function to observe changes to the figcaption element
+function observePauseTextChanges(fontSize, fontFamily) {
+  const pauseEl = document.getElementById("pause");
+
+  if (pauseEl) {
+    const textContainer = pauseEl.querySelector("figcaption");
+
+    if (textContainer) {
+      // Create a MutationObserver to watch for changes
+      const observer = new MutationObserver((mutationsList, observer) => {
+        for (const mutation of mutationsList) {
+          if (mutation.type === "childList" || mutation.type === "subtree") {
+            tidbitsTextStyle(fontSize, fontFamily);
+            disableBackgroundIfTidbitPresent();
+          }
+        }
+      });
+
+      // Start observing the figcaption element for changes
+      observer.observe(textContainer, {
+        childList: true,
+        subtree: true
+      });
+
+      // Initial application of styles
+      tidbitsTextStyle(fontSize, fontFamily);
+      disableBackgroundIfTidbitPresent();
+    }
+  }
+}
+
 
 function startPauseTextRotation(interval) {
   if (pauseTextTimer) {
