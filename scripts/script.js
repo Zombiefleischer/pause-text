@@ -18,7 +18,7 @@ Hooks.on("renderPause", function () {
   // Make it work with dnd5e 3.x version
   if (
     game.data.system.id === "dnd5e" &&
-    isNewerVersion(game.data.system.version, "2.4.1")
+    foundry.utils.isNewerVersion(game.data.system.version, "2.4.1")
   ) {
     $("#pause").removeClass("dnd5e2");
     $("#pause > img").addClass("fa-spin");
@@ -65,7 +65,7 @@ Hooks.on("renderPause", function () {
     $("#pause.paused img").hide();
   } else {
     $("#pause.paused img").attr("src", path);
-    if (isNewerVersion(game.version, "10")) {
+    if (foundry.utils.isNewerVersion(game.version, "10")) {
       if (reverse) {
         $("#pause.paused img").css({
           top: top,
@@ -163,7 +163,7 @@ function displayPauseText(settings) {
   // const size = getTextboxSize(text.length, fontSize);
 
   // Change pause text
-  if (isNewerVersion(game.version, "10")) {
+  if (foundry.utils.isNewerVersion(game.version, "10")) {
     $("#pause.paused figcaption").text(text);
     if (text.length !== 0 && shadow) {
       $("#pause.paused figcaption").css({
