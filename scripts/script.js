@@ -57,59 +57,34 @@ Hooks.on("renderPause", function () {
     pauseTextTimer = null;
   }
 
-  // For Tidbits
-  observePauseTextChanges(settings.fontSize, settings.fontFamily);
-  
-  // Change the displayed image
-  if (path === "None" || dimensionX === 0 || dimensionY === 0) {
-    $("#pause.paused img").hide();
-  } else {
-    $("#pause.paused img").attr("src", path);
-    if (foundry.utils.isNewerVersion(game.version, "10")) {
-      if (reverse) {
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "--fa-animation-duration": speed,
-          "--fa-animation-direction": "reverse",
-        });
-      } else {
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "--fa-animation-duration": speed,
-        });
-      }
+    // For Tidbits
+    observePauseTextChanges(settings.fontSize, settings.fontFamily);
+    
+    // Change the displayed image
+    if (path === "None" || dimensionX === 0 || dimensionY === 0) {
+      $("#pause.paused img").hide();
     } else {
-      if (reverse) {
-        speed += " linear 0s infinite reverse none running rotation";
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "-webkit-animation": speed,
-        });
-      } else {
-        speed += " linear 0s infinite normal none running rotation";
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "-webkit-animation": speed,
-        });
+      const pauseCss = {
+        content: `url(${path})`,
+        top: top,
+        left: left,
+        width: dimensionX,
+        height: dimensionY,
+        opacity: opacity,
       }
+      if (foundry.utils.isNewerVersion(game.version, "10")) {
+        pauseCss["--fa-animation-duration"] = speed
+        if (reverse) {
+          pauseCss["--fa-animation-direction"] = "reverse"
+        }
+      }
+      else {
+        speed += ` linear 0s infinite ${reverse ? 'reverse' : 'normal'} none running rotation`
+        pauseCss["-webkit-animation"] = speed
+      }
+      pauseImage.attr("src", path);
+      pauseImage.css(pauseCss);
     }
-  }
 });
 
 function selectRandomPauseText(allText) {
