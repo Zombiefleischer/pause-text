@@ -59,56 +59,31 @@ Hooks.on("renderPause", function () {
 
   // For Tidbits
   observePauseTextChanges(settings.fontSize, settings.fontFamily);
-  
+
+  const pauseImage = $("#pause.paused img");
   // Change the displayed image
   if (path === "None" || dimensionX === 0 || dimensionY === 0) {
-    $("#pause.paused img").hide();
+    pauseImage.hide();
   } else {
-    $("#pause.paused img").attr("src", path);
+    const pauseCss = {
+      content: `url(${path})`,
+      top: top,
+      left: left,
+      width: dimensionX,
+      height: dimensionY,
+      opacity: opacity,
+    }
     if (foundry.utils.isNewerVersion(game.version, "10")) {
+      pauseCss["--fa-animation-duration"] = speed
       if (reverse) {
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "--fa-animation-duration": speed,
-          "--fa-animation-direction": "reverse",
-        });
-      } else {
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "--fa-animation-duration": speed,
-        });
-      }
-    } else {
-      if (reverse) {
-        speed += " linear 0s infinite reverse none running rotation";
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "-webkit-animation": speed,
-        });
-      } else {
-        speed += " linear 0s infinite normal none running rotation";
-        $("#pause.paused img").css({
-          top: top,
-          left: left,
-          width: dimensionX,
-          height: dimensionY,
-          opacity: opacity,
-          "-webkit-animation": speed,
-        });
+        pauseCss["--fa-animation-direction"] = "reverse"
       }
     }
+    else {
+      pauseCss["-webkit-animation"] = `${speed} linear 0s infinite ${reverse ? 'reverse' : 'normal'} none running rotation`
+    }
+    pauseImage.attr("src", path);
+    pauseImage.css(pauseCss);
   }
 });
 
