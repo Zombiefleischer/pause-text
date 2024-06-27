@@ -6,7 +6,7 @@
   "version": "2.0.0",
   "compatibility": {
     "minimum": 10,
-    "verified": 11
+    "verified": 12
   },
   "authors": [
     {
@@ -60,6 +60,11 @@
       "lang": "es",
       "name": "Spanish",
       "path": "languages/es.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Fran&ccedil;ais",
+      "path": "languages/fr.json"
     }
   ],
   "url": "https://github.com/Zombiefleischer/pause-text",
