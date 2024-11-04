@@ -15,76 +15,104 @@ Hooks.once("socketlib.ready", () => {
 Hooks.on("renderPause", function () {
   if (!$("#pause").hasClass("paused")) return;
 
-  // Make it work with dnd5e 3.x version
-  if (
-    game.data.system.id === "dnd5e" &&
-    foundry.utils.isNewerVersion(game.data.system.version, "2.4.1")
-  ) {
-    $("#pause").removeClass("dnd5e2");
-    $("#pause > img").addClass("fa-spin");
-  }
-
-  // Get all settings
-  const settings = game.settings.get("pause-text", "allSettings");
-
-  // Get image settings
-  const path = settings.path;
-  const opacity = settings.opacity / 100;
-  let speed = settings.speed + "s";
-  const reverse = settings.reverse;
-  const dimensionX = settings.dimensionX;
-  const dimensionY = settings.dimensionY;
-  const iconSpacingY = settings.iconSpacingY;
-  const top = `${-16 - (dimensionY - 128) / 2 + iconSpacingY}px`;
-  const left = `calc(50% - ${dimensionX / 2}px)`;
-
-  // Get random text
-  settings.selectedText = selectRandomPauseText(settings.allText);
-
-  // Get sync settings and open socket
-  if ($("#pause").hasClass("paused") && settings.sync) {
-    socket.executeAsGM("selectAndBroadcastPauseText", settings);
-  } else {
-    displayPauseText(settings);
-  }
-
-  // Start or stop the text rotation
-  const interval = settings.textChangeInterval;
-  if ($("#pause").hasClass("paused")) {
-    startPauseTextRotation(interval);
-  } else if (pauseTextTimer) {
-    clearInterval(pauseTextTimer);
-    pauseTextTimer = null;
-  }
-
-  // For Tidbits
-  observePauseTextChanges(settings.fontSize, settings.fontFamily);
-
-  const pauseImage = $("#pause.paused img");
-  // Change the displayed image
-  if (path === "None" || dimensionX === 0 || dimensionY === 0) {
-    pauseImage.hide();
-  } else {
-    const pauseCss = {
-      content: `url(${path})`,
-      top: top,
-      left: left,
-      width: dimensionX,
-      height: dimensionY,
-      opacity: opacity,
+  setTimeout(() => {
+    // Set a timeout for slower loading system to not overwrite my styles
+    // Make it work with dnd5e 3.x version
+    if (
+      game.data.system.id === "dnd5e" &&
+      foundry.utils.isNewerVersion(game.data.system.version, "2.4.1")
+    ) {
+      $("#pause").removeClass("dnd5e2");
+      $("#pause > img").addClass("fa-spin");
     }
-    if (foundry.utils.isNewerVersion(game.version, "10")) {
-      pauseCss["--fa-animation-duration"] = speed
-      if (reverse) {
-        pauseCss["--fa-animation-direction"] = "reverse"
+
+    // Make it work with WoD
+    if (game.data.system.id === "vtm5e") {
+      $("#pause > img.pause-overlay").remove();
+      $("#pause > img").each(function () {
+        const img = $(this);
+
+        if (img.hasClass("pause-overlay")) {
+          img.remove();
+        }
+
+        if (img.hasClass("pause-border")) {
+          img.removeClass("pause-border");
+        }
+      });
+      console.log("Removed vtm5e");
+    }
+
+    // Get all settings
+    const settings = game.settings.get("pause-text", "allSettings");
+
+    // Get image settings
+    const path = settings.path;
+    const opacity = settings.opacity / 100;
+    let speed = settings.speed + "s";
+    const reverse = settings.reverse;
+    const dimensionX = settings.dimensionX;
+    const dimensionY = settings.dimensionY;
+    const iconSpacingY = settings.iconSpacingY;
+    const top = `${-16 - (dimensionY - 128) / 2 + iconSpacingY}px`;
+    const left = `calc(50% - ${dimensionX / 2}px)`;
+
+    // Get random text
+    settings.selectedText = selectRandomPauseText(settings.allText);
+
+    // Get sync settings and open socket
+    if ($("#pause").hasClass("paused") && settings.sync) {
+      socket.executeAsGM("selectAndBroadcastPauseText", settings);
+    } else {
+      displayPauseText(settings);
+    }
+
+    // Start or stop the text rotation
+    const interval = settings.textChangeInterval;
+    if ($("#pause").hasClass("paused")) {
+      startPauseTextRotation(interval);
+    } else if (pauseTextTimer) {
+      clearInterval(pauseTextTimer);
+      pauseTextTimer = null;
+    }
+
+    // For Tidbits
+    observePauseTextChanges(settings.fontSize, settings.fontFamily);
+
+    const pauseImage = $("#pause.paused img");
+    // Change the displayed image
+    if (path === "None" || dimensionX === 0 || dimensionY === 0) {
+      pauseImage.hide();
+    } else {
+      const pauseCss = {
+        content: `url(${path})`,
+        top: top,
+        left: left,
+        width: dimensionX,
+        height: dimensionY,
+        opacity: opacity,
+      };
+      if (foundry.utils.isNewerVersion(game.version, "10")) {
+        pauseCss["--fa-animation-duration"] = speed;
+        $("#pause img.fa-spin").css(
+          "animation-duration",
+          "var(--fa-animation-duration, 5s)",
+        );
+        if (reverse) {
+          pauseCss["--fa-animation-direction"] = "reverse";
+          $("#pause img.fa-spin").css(
+            "animation-direction",
+            "var(--fa-animation-direction, normal)",
+          );
+        }
+      } else {
+        pauseCss["-webkit-animation"] =
+          `${speed} linear 0s infinite ${reverse ? "reverse" : "normal"} none running rotation`;
       }
+      pauseImage.attr("src", path);
+      pauseImage.css(pauseCss);
     }
-    else {
-      pauseCss["-webkit-animation"] = `${speed} linear 0s infinite ${reverse ? 'reverse' : 'normal'} none running rotation`
-    }
-    pauseImage.attr("src", path);
-    pauseImage.css(pauseCss);
-  }
+  });
 });
 
 function selectRandomPauseText(allText) {
@@ -99,13 +127,13 @@ function selectAndBroadcastPauseText(settings) {
   }
 }
 
-function getTextboxSize(length, fontSize,   figcaptionHeight) {
+function getTextboxSize(length, fontSize, figcaptionHeight) {
   const calculatedWidth = (length * fontSize * 90) / 12 + 70;
   const maxWidth = $("#pause").width() * 0.5 + 300;
   const finalWidth = Math.min(calculatedWidth, maxWidth);
 
   const finalHeight = figcaptionHeight > 70 ? 200 : 100;
-  
+
   const size = `${finalWidth}px ${finalHeight}px`;
   return size;
 }
@@ -116,7 +144,7 @@ function getPauseSize(figcaptionHeight) {
 
   const size = {
     height: `${figureHeight}px`,
-    paddingTop: `${paddingTop}px`
+    paddingTop: `${paddingTop}px`,
   };
   return size;
 }
@@ -145,28 +173,29 @@ function displayPauseText(settings) {
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
-        "width": `50%`,
-        "margin": `auto`,
+        width: `50%`,
+        margin: `auto`,
         "line-height": `24px`,
         "padding-top": `30px`,
         "overflow-wrap": "break-word",
+        // TODO: "font-variant": "small-caps",
       });
       const figcaptionHeight = $("#pause.paused figcaption").outerHeight();
       const size = getTextboxSize(text.length, fontSize, figcaptionHeight);
       const pauseSize = getPauseSize(figcaptionHeight);
       $("#pause.paused").css({ "background-size": size });
       $("#pause").css({
-        "height": pauseSize.height,
+        height: pauseSize.height,
         "padding-top": pauseSize.paddingTop,
       });
-    disableBackgroundIfTidbitPresent();
+      disableBackgroundIfTidbitPresent();
     } else if (text.length !== 0 && !shadow) {
       $("#pause.paused figcaption").css({
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
-        "width": `50%`,
-        "margin": `auto`,
+        width: `50%`,
+        margin: `auto`,
         "line-height": `24px`,
         "padding-top": `24px`,
         "overflow-wrap": "break-word",
@@ -184,8 +213,8 @@ function displayPauseText(settings) {
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
-        "width": `50%`,
-        "margin": `auto`,
+        width: `50%`,
+        margin: `auto`,
         "line-height": `24px`,
         "padding-top": `24px`,
         "overflow-wrap": "break-word",
@@ -195,8 +224,8 @@ function displayPauseText(settings) {
         color: textColor,
         "font-size": `${fontSize}em`,
         "font-family": `${fontFamily}`,
-        "width": `50%`,
-        "margin": `auto`,
+        width: `50%`,
+        margin: `auto`,
         "line-height": `24px`,
         "padding-top": `24px`,
         "overflow-wrap": "break-word",
@@ -238,7 +267,7 @@ function observePauseTextChanges(fontSize, fontFamily) {
       // Start observing the figcaption element for changes
       observer.observe(textContainer, {
         childList: true,
-        subtree: true
+        subtree: true,
       });
 
       // Initial application of styles
@@ -247,7 +276,6 @@ function observePauseTextChanges(fontSize, fontFamily) {
     }
   }
 }
-
 
 function startPauseTextRotation(interval) {
   if (pauseTextTimer) {
