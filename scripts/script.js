@@ -28,7 +28,6 @@ Hooks.on("renderPause", function () {
 
     // Make it work with WoD
     if (game.data.system.id === "vtm5e") {
-      $("#pause > img.pause-overlay").remove();
       $("#pause > img").each(function () {
         const img = $(this);
 
@@ -40,7 +39,6 @@ Hooks.on("renderPause", function () {
           img.removeClass("pause-border");
         }
       });
-      console.log("Removed vtm5e");
     }
 
     // Get all settings
