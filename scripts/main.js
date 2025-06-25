@@ -9,7 +9,7 @@ Hooks.on("init", async () => {
 
 
 
-Hooks.on("renderGamePause", function (_,html,options) {
+Hooks.on("renderGamePause", function (_, html, options) {
   if (options.cssClass === "paused") {
     setTimeout(() => {
       setPauseUI(html);
