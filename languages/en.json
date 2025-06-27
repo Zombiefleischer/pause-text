@@ -34,7 +34,7 @@
         "hint": "Horizontal position of the Pause Element on screen. 0 is extreme left, 100 extreme right. Works best with gradient background off. Default: 50"
       },
       "gradientBackground": {
-        "name": "Gradient Background (on/off):",
+        "name": "Gradient Background:",
         "hint": "Toggles the background behind the icon and the message."
       },
       "gradientColor":{
@@ -64,8 +64,12 @@
         "hint": "Seconds until the next random text is displayed. 0 and negative values disables this. Default: 15s"
       },
       "fontFamily": {
-        "name": "Font: ",
-        "hint": "Font name to be used. It works well with Custom Fonts module. Check the name is well written. Foundry Default: Amiri"
+        "name": "Font:",
+        "hint": "Font name to be used. It works well with Custom Fonts module and Google Fonts. Check the name is well written. Foundry Default: Amiri"
+      },
+      "useGoogleFont": {
+        "name": "Google Font:",
+        "hint": "Check this, if the font is from Google Fonts, otherwise it will not work. Default: false"
       },
       "fontColor": {
         "name": "Font Color:",
@@ -74,6 +78,18 @@
       "fontSize": {
         "name": "Font Size (em):",
         "hint": "Size of the font in em. Default: 2em"
+      },
+      "fontBold": {
+        "name": "Bold:",
+        "hint": "Bolds the font. Some fonts don't support this. Default: true"
+      },
+      "fontItalic": {
+        "name": "Italic:",
+        "hint": "Italicizes the font. Some fonts don't support this. Default: false"
+      },
+      "fontSmallCaps": {
+        "name": "Small Caps:",
+        "hint": "Activates the small-caps font variant. All lowercase letters are converted to smaller uppercase letters. Default: false"
       },
       "lineHeight": {
         "name": "Line Height (rem):",

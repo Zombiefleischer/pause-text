@@ -7,5 +7,8 @@ You can also change the pause icon. Supported formats are jpg, png, webp and gif
 
 Now with text synchronization between players!
 
+Now with animations and Google Fonts support!
+
 Dependencies:
+
 - socketlib

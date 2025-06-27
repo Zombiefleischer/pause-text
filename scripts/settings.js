@@ -171,6 +171,15 @@ export function registerSettings() {
     type: String,
   });
 
+  game.settings.register(MODULE_ID, "useGoogleFont", {
+    name: game.i18n.localize("pauseText.text.useGoogleFont.name"),
+    hint: game.i18n.localize("pauseText.text.useGoogleFont.hint"),
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
   game.settings.register(MODULE_ID, "fontColor", {
     name: game.i18n.localize("pauseText.text.fontColor.name"),
     hint: game.i18n.localize("pauseText.text.fontColor.hint"),
@@ -188,6 +197,33 @@ export function registerSettings() {
     default: 2,
     type: Number,
   });
+
+  game.settings.register(MODULE_ID, "fontBold", {
+    name: game.i18n.localize("pauseText.text.fontBold.name"),
+    hint: game.i18n.localize("pauseText.text.fontBold.hint"),
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  })
+
+  game.settings.register(MODULE_ID, "fontItalic", {
+    name: game.i18n.localize("pauseText.text.fontItalic.name"),
+    hint: game.i18n.localize("pauseText.text.fontItalic.hint"),
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  })
+
+  game.settings.register(MODULE_ID, "fontSmallCaps", {
+    name: game.i18n.localize("pauseText.text.fontSmallCaps.name"),
+    hint: game.i18n.localize("pauseText.text.fontSmallCaps.name"),
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  })
 
   game.settings.register(MODULE_ID, "lineHeight", {
     name: game.i18n.localize("pauseText.text.lineHeight.name"),

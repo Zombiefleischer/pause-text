@@ -1,36 +1,144 @@
 {
-  "PAUSEICON.settings": "Configuration: ",
-  "PAUSEICON.settingsButton": "Ouvrir la configuration",
-  "PAUSEICON.settingsFormHeader": "Alternative Pause Text - Configuration",
-
-  "PAUSEICON.icon_settings_name": "Configuration de l'image",
-  "PAUSEICON.path_name": "Chemin de l'image de pause: ",
-  "PAUSEICON.path_hint": "Dossier et nom du fichier où se trouve l'image de pause alternative dans les données de Foundry VTT data. Cliquer sur le bouton de sélection pour choisir l'image à utiliser.",
-  "PAUSEICON.opacity_name": "Opacité %: ",
-  "PAUSEICON.opacity_hint": "Valeur de 0 à 100, le plus bas est le plus translucide.",
-  "PAUSEICON.dimensions_name": "Dimensions (Largeur x Hauteur): ",
-  "PAUSEICON.dimensions_hint": "Largeur et Hauteur de l'image en pixels.",
-  "PAUSEICON.speed_name": "Vitesse: ",
-  "PAUSEICON.speed_hint": "Durée d'une rotation en secondes, 0 pour désactiver la rotation.",
-  "PAUSEICON.reverse_name": "Sens inverse: ",
-  "PAUSEICON.reverse_hint": "Inverse le sens de rotation.",
-  "PAUSEICON.icon_vertical_name": "Ajustement vertical en pixels: ",
-  "PAUSEICON.icon_vertical_hint": "Nombre de pixels vers dont il faut décaler l'image. Les valeurs négatives décalent vers le haut, les valeurs positives vers le bas.",
-
-  "PAUSEICON.text_settings_name": "Configuration du texte",
-  "PAUSEICON.text_name": "Messages de pause: ",
-  "PAUSEICON.text_hint": "Les messages qui apparaissent quand le jeu est en pause.",
-  "PAUSEICON.sync": "Activer la synchronisation: ",
-  "PAUSEICON.sync_hint": "Active ou désactive la synchronisation du message entre les joueurs.",
-  "PAUSEICON.textChangeInterval": "Fréquence de changement du message: ",
-  "PAUSEICON.textChangeInterval_hint": "Nombre de secondes pour qu'un nouveau message aléatoire soit affiché. Les valeurs 0 et négatives désactivent ce changement.",
-  "PAUSEICON.fontSize_name": "Taille du message (em): ",
-  "PAUSEICON.fontSize_hint": "Taille de police de caractères en em, 2 par défaut.",
-  "PAUSEICON.shadow_name": "Ombre portée: ",
-  "PAUSEICON.shadow_hint": "Quand activé, une ombre portée est affichée sous le message.",
-  "PAUSEICON.textColor_name": "Couleur: ",
-  "PAUSEICON.textColor_hint": "Soit le code hexadécimal du code couleur (exemple: #EEEEEE) ou nom (anglais) de couleur HTML (exemple: CornflowerBlue).",
-  "PAUSEICON.saveButton": "Sauvegarder et recharger Foundry",
-  "PAUSEICON.fontFamily_name": "Police: ",
-  "PAUSEICON.fontFamily_hint": "Nom de police de caractères à utiliser. Fonctionne correctement avec le module \"Custom Fonts\". Vérifier que le nom est bien orthographié."
+  "pauseText": {
+    "image": {
+      "source": {
+        "name": "Chemin du fichier d'image de pause :",
+        "hint": "Tapez None pour ne pas afficher d'image."
+      },
+      "opacity": {
+        "name": "Opacité de l'image (%):",
+        "hint": "Valeur entre 0 et 100, plus c’est bas, plus c’est transparent. Par défaut : 50 %"
+      },
+      "width": {
+        "name": "Largeur de l'image :",
+        "hint": "Largeur de l'icône en pixels. Par défaut : 100 px"
+      },
+      "height": {
+        "name": "Hauteur de l'image :",
+        "hint": "Hauteur de l'icône en pixels. Par défaut : 100 px"
+      },
+      "speed": {
+        "name": "Vitesse :",
+        "hint": "Secondes par rotation, 0 pour aucune rotation. Par défaut : 5"
+      },
+      "reverse": {
+        "name": "Inverser :",
+        "hint": "Inverser la rotation."
+      },
+      "verticalPos": {
+        "name": "Position verticale :",
+        "hint": "Position verticale de l’élément de pause à l’écran. 0 en haut, 100 en bas. Par défaut : 50"
+      },
+      "horizontalPos": {
+        "name": "Position horizontale :",
+        "hint": "Position horizontale de l’élément de pause à l’écran. 0 à gauche, 100 à droite. Fonctionne mieux sans fond en dégradé. Par défaut : 50"
+      },
+      "gradientBackground": {
+        "name": "Fond en dégradé (on/off) :",
+        "hint": "Active ou désactive le fond derrière l’icône et le message."
+      },
+      "gradientColor": {
+        "name": "Couleur du dégradé :",
+        "hint": "Définit la couleur du dégradé. Par défaut : #0b0a13"
+      },
+      "gradientOpacity": {
+        "name": "Opacité du dégradé :",
+        "hint": "Définit l’opacité du centre du dégradé. Par défaut : 128"
+      }
+    },
+    "text": {
+      "messages": {
+        "name": "Messages de pause :",
+        "hint": "Après avoir enregistré vos paramètres, REACTIVEZ la pause pour voir les changements !",
+        "label": "Messages de pause",
+        "submenuTitle": "Messages de pause",
+        "saveButton": "Enregistrer",
+        "messageHint": "Vous pouvez utiliser \\n pour insérer des sauts de ligne dans vos messages !"
+      },
+      "textSync": {
+        "name": "Activer la synchronisation :",
+        "hint": "Active ou désactive la synchronisation du texte de pause entre les joueurs."
+      },
+      "changeInterval": {
+        "name": "Intervalle de changement de texte :",
+        "hint": "Secondes avant l’affichage d’un nouveau message aléatoire. 0 ou une valeur négative désactive cette fonction. Par défaut : 15s"
+      },
+      "fontFamily": {
+        "name": "Police :",
+        "hint": "Nom de la police à utiliser. Fonctionne bien avec le module 'Custom Fonts' et Google Fonts. Vérifiez que le nom est bien écrit. Police par défaut de Foundry : Amiri"
+      },
+      "useGoogleFont": {
+        "name": "Police Google :",
+        "hint": "Cochez cette option si la police provient de Google Fonts, sinon elle ne fonctionnera pas. Par défaut : false"
+      },
+      "fontColor": {
+        "name": "Couleur de la police :",
+        "hint": "Code couleur hexadécimal de la police. Par défaut : #ada7b8"
+      },
+      "fontSize": {
+        "name": "Taille de la police (em) :",
+        "hint": "Taille de la police en em. Par défaut : 2em"
+      },
+      "fontBold": {
+        "name": "Gras :",
+        "hint": "Affiche la police en gras. Certaines polices ne le prennent pas en charge. Par défaut : true"
+      },
+      "fontItalic": {
+        "name": "Italique :",
+        "hint": "Affiche la police en italique. Certaines polices ne le prennent pas en charge. Par défaut : false"
+      },
+      "fontSmallCaps": {
+        "name": "Petites capitales :",
+        "hint": "Active la variante 'small-caps'. Les minuscules sont affichées en majuscules réduites. Par défaut : false"
+      },
+      "lineHeight": {
+        "name": "Hauteur de ligne (rem) :",
+        "hint": "Hauteur des lignes de texte en rem. 2 convient bien pour plusieurs lignes. Par défaut : 1rem"
+      },
+      "textShadow": {
+        "name": "Activer l’ombre portée :",
+        "hint": "Lorsqu’elle est activée, une ombre est affichée sous le texte."
+      },
+      "textAlign": {
+        "name": "Alignement du texte multiligne :",
+        "hint": "Aligne le texte multiligne dans sa boîte d’affichage. Par défaut : Centré",
+        "choices": {
+          "center": "Centré",
+          "left": "Gauche",
+          "right": "Droite"
+        }
+      },
+      "fontCaps": {
+        "name": "Options de texte :",
+        "hint": "Définit diverses options pour transformer le texte. Par défaut : Majuscules",
+        "choices": {
+          "none": "Aucune",
+          "capitalize": "Première lettre en majuscule",
+          "uppercase": "Tout en majuscules"
+        }
+      }
+    },
+    "animation": {
+      "animationType": {
+        "name": "Type d’animation :",
+        "hint": "Définit l’animation de l’élément de pause. Par défaut : Pulsation",
+        "choices": {
+          "none": "Aucune",
+          "pulse": "Pulsation",
+          "rainbow": "Arc-en-ciel",
+          "breath": "Souffle",
+          "glow": "Lueur"
+        }
+      },
+      "animationDuration": {
+        "name": "Durée de l’animation :",
+        "hint": "Durée de l’animation en secondes. Par défaut : 3s"
+      },
+      "animationColor": {
+        "name": "Couleur de l’animation :",
+        "hint": "Certaines animations permettent de changer la couleur. Par défaut : #ffffff"
+      }
+    }
+  }
 }
+

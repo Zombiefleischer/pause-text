@@ -129,7 +129,14 @@ function displayPauseText(selectedMessage) {
   pauseText.style.textTransform = setting("fontCaps");
   pauseText.style["font-size"] = `${setting("fontSize")}em`;
   pauseText.style["line-height"] = `${setting("lineHeight")}rem`;
+  const fontFamily = setting("fontFamily");
+  if (setting("useGoogleFont") && fontFamily) {
+    loadGoogleFont(fontFamily);
+  }
   pauseText.style.fontFamily = setting("fontFamily");
+  pauseText.style.fontStyle = setting("fontItalic") ? "italic" : "normal";
+  pauseText.style.fontWeight = setting("fontBold") ? "bold" : "normal";
+  pauseText.style.fontVariant = setting("fontSmallCaps") ? "small-caps" : "normal";
 
   // Improve spacing with long text
   pauseText.style.maxWidth = "90%";
@@ -252,4 +259,17 @@ function measureHeight(element) {
   document.body.removeChild(clone);
   
   return height;
+}
+
+function loadGoogleFont(fontFamily) {
+  const fontSlug = fontFamily.replace(/ /g, "+");
+  const id = `google-font-${fontSlug}`;
+
+  if (document.getElementById(id)) return;
+
+  const link = document.createElement("link");
+  link.id = id;
+  link.rel = "stylesheet";
+  link.href = `https://fonts.googleapis.com/css2?family=${fontSlug}&display=swap`;
+  document.head.appendChild(link);
 }
