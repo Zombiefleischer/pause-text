@@ -1,14 +1,66 @@
+# ⏸️ Alternative Pause Text
+
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Zombiefleischer/pause-text/total?style=for-the-badge)
 ![GitHub Downloads (specific asset, all releases)](https://img.shields.io/github/downloads/Zombiefleischer/pause-text/module.zip?style=for-the-badge)
 ![GitHub Downloads (specific asset, latest release)](https://img.shields.io/github/downloads/Zombiefleischer/pause-text/latest/module.zip?sort=semver&style=for-the-badge)
 
-A simple fork of the [pause-icon](https://gitlab.com/Freeze020/pause-icon/) module. It adds support for pause-text-lists. There are pregenerated ones, but you can add your own lines or change the existing ones.
-You can also change the pause icon. Supported formats are jpg, png, webp and gif.
+A feature-rich enhancement of the original [pause-icon](https://gitlab.com/Freeze020/pause-icon/) module for Foundry VTT.
 
-Now with text synchronization between players!
+> 💬 Add flavor and flair to your game's **pause screen** with customizable text, animations, and fonts!
 
-Now with animations and Google Fonts support!
+---
 
-Dependencies:
+## ✨ Features
 
-- socketlib
+- 🔤 **Display a rotating list of messages** during pauses
+- 📝 **Pre-generated and customizable message lists**
+- 🖼️ **Custom pause icons** (supports `.jpg`, `.png`, `.webp`, `.gif`)
+- 🔄 **Text synchronization across all players** (via GM)
+- 🪄 **Animation options**
+- 🌐 **Google Fonts support**
+- 🎨 **Adjust font, size, color, caps, bold, italic, and more**
+
+---
+
+## ⚙️ Dependencies
+
+- `[socketlib](https://github.com/farling42/foundryvtt-socketlib)` (for message synchronization)
+
+---
+
+## 📦 Installation
+
+- Install via [Foundry](https://foundryvtt.com/packages/pause-text)
+- Using the manifest URL:
+
+```
+https://github.com/Zombiefleischer/pause-text/releases/latest/download/module.json
+```
+
+- Or download the [latest module.zip](https://github.com/Zombiefleischer/pause-text/releases/latest) and install manually
+
+---
+
+## 🧩 Customization
+
+All options are configurable in the module settings, including:
+
+- Message list
+- Change interval
+- Font style & animation
+- Background gradient
+- Icon & positioning
+
+---
+
+## 🧠 Based on
+
+This is a fork of [pause-icon](https://gitlab.com/Freeze020/pause-icon/), extended with more features.
+
+---
+
+## 📸 Screenshots
+
+![media/Screenshot1.png]
+
+![media/Screenshot2.png]

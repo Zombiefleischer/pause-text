@@ -149,32 +149,31 @@ function displayPauseText(selectedMessage) {
   // Change the gradient background
   const background = setting("gradientBackground");
 
+  // Get the required settings
+  const gradientColor = setting("gradientColor");
+  const lineHeight = measureHeight(pauseText);
+  const imgElement = pauseElement.querySelector("img");
+  const verticalPos = setting("verticalPos");
+  const horizontalPos = setting("horizontalPos");
+  const imgHeight = !imgElement.hidden ? setting("imgHeight") : 0;
+
+  // Set the background color
+  const backgroundOpacity = setting("gradientOpacity").toString(16).padStart(2, '0');
+  html.style.background = `linear-gradient(to right, transparent 0%, ${gradientColor}${backgroundOpacity} 40%, ${gradientColor}${backgroundOpacity} 60%, transparent 100%)`;
+
+
+  // Set the background height
+  html.style.height = `${Math.round(64 + imgHeight + lineHeight)}px`;
+
+  // Set the vertical position
+  html.style.top = `calc(${verticalPos}vh - ${100 + 0.5 * (imgHeight - 100) + 0.5 * (lineHeight - 16)}px)`;
+
+  // Set the horizontal position
+  html.style.left = `${horizontalPos - 50}vw`;
+
   // Check if the background will be displayed
   if (!background) {
     html.style.background = "none";
-  } else {
-
-    // Get the required settings
-    const gradientColor = setting("gradientColor");
-    const lineHeight = measureHeight(pauseText);
-    const imgElement = pauseElement.querySelector("img");
-    const verticalPos = setting("verticalPos");
-    const horizontalPos = setting("horizontalPos");
-    const imgHeight = !imgElement.hidden ? setting("imgHeight") : 0;
-
-    // Set the background color
-    const backgroundOpacity = setting("gradientOpacity").toString(16).padStart(2, '0');
-    html.style.background = `linear-gradient(to right, transparent 0%, ${gradientColor}${backgroundOpacity} 40%, ${gradientColor}${backgroundOpacity} 60%, transparent 100%)`;
-
-
-    // Set the background height
-    html.style.height = `${Math.round(64 + imgHeight + lineHeight)}px`;
-
-    // Set the vertical position
-    html.style.top = `calc(${verticalPos}vh - ${100 + 0.5 * (imgHeight - 100) + 0.5 * (lineHeight - 16)}px)`;
-
-    // Set the horizontal position
-    html.style.left = `${horizontalPos - 50}vw`;
   }
 
   // Set animation
