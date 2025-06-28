@@ -17,6 +17,10 @@
         "name": "Hauteur de l'image :",
         "hint": "Hauteur de l'icône en pixels. Par défaut : 100 px"
       },
+      "initRotation": {
+        "name": "Rotation de l’image :",
+        "hint": "Définit la rotation initiale de l’image. Peut être utilisée pour faire pivoter l’image si l’animation de rotation est désactivée. Par défaut : 0"
+      },
       "speed": {
         "name": "Vitesse :",
         "hint": "Secondes par rotation, 0 pour aucune rotation. Par défaut : 5"

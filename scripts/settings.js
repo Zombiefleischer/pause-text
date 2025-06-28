@@ -48,6 +48,20 @@ export function registerSettings() {
     type: Number,
   });
 
+  game.settings.register(MODULE_ID, "initRotation", {
+    name: game.i18n.localize("pauseText.image.initRotation.name"),
+    hint: game.i18n.localize("pauseText.image.initRotation.hint"),
+    scope: "world",
+    config: true,
+    default: 0,
+    type: Number,
+    range: {
+      min: 0,
+      max: 360,
+      step: 1,
+    },
+  });
+
   game.settings.register(MODULE_ID, "speedRotation", {
     name: game.i18n.localize("pauseText.image.speed.name"),
     hint: game.i18n.localize("pauseText.image.speed.hint"),

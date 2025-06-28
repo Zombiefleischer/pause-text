@@ -17,6 +17,11 @@
         "name": "Bildhöhe:",
         "hint": "Höhe des Symbols in Pixeln. Standard: 100px"
       },
+      "initRotation": {
+        "name": "Bildrotation:",
+        "hint": "Legt die anfängliche Rotation des Bildes fest. Kann verwendet werden, um das Bild zu drehen, wenn die Rotationsanimation deaktiviert ist. Standard: 0"
+      },
+
       "speed": {
         "name": "Geschwindigkeit:",
         "hint": "Sekunden pro Umdrehung, 0 bedeutet keine Rotation. Standard: 5"

@@ -77,6 +77,7 @@ function setImage(pauseElement) {
     pauseImg.style.opacity = imgOpacity;
     pauseImg.style.width = `${imgWidth}px`;
     pauseImg.style.height = `${imgHeight}px`;
+    pauseImg.style.rotate = `${setting("initRotation")}deg`;
     pauseImg.style.cssText += `--fa-animation-duration: ${imgRotationSpeed}s`;
     if (imgRotationReversed) {
       pauseImg.style.cssText += `--fa-animation-direction: reverse`;

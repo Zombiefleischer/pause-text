@@ -17,6 +17,10 @@
         "name": "Image Height:",
         "hint": "Height of the icon in pixels. Default: 100px"
       },
+      "initRotation": {
+        "name": "Image Rotation:",
+        "hint": "This sets the initial rotation of the image. Can be used to rotate the image, if the rotation animation is disabled. Default: 0"
+      },
       "speed": {
         "name": "Speed:",
         "hint": "Seconds per rotation, 0 is no rotation. Default: 5"
