@@ -1,12 +1,11 @@
 {
   "id": "pause-text",
-  "name": "pause-text",
   "title": "Alternative Pause Text",
   "description": "Set the pause message to a list of messages, whatever you prefer. Can be synced between players. You can also change the image. Supported formats are jpg, png, webp and gif. Forked from pause-icon.",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "compatibility": {
-    "minimum": 10,
-    "verified": 12
+    "minimum": 13,
+    "verified": 13
   },
   "authors": [
     {
@@ -42,8 +41,7 @@
       }
     ]
   },
-  "esmodules": ["scripts/messages.js", "scripts/script.js"],
-  "scripts": [],
+  "esmodules": ["scripts/messages.js", "scripts/main.js"],
   "styles": ["styles/pt-config.css"],
   "languages": [
     {

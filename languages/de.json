@@ -1,36 +1,149 @@
 {
-  "PAUSEICON.settings": "Einstellungen: ",
-  "PAUSEICON.settingsButton": "Einstellungsuntermenü",
-  "PAUSEICON.settingsFormHeader": "Alternative Pausentext-Einstellungen",
+  "pauseText": {
+    "image": {
+      "source": {
+        "name": "Datenpfad des Pause-Symbols:",
+        "hint": "Ordner und Dateiname des alternativen Pause-Symbols im Foundry VTT-Datenverzeichnis. Klicke auf die Auswahltaste, um dein Symbol auszuwählen. Gib 'None' ein, um kein Bild zu verwenden."
+      },
+      "opacity": {
+        "name": "Bilddeckkraft %:",
+        "hint": "Wert zwischen 0 und 100, niedriger bedeutet durchsichtiger. Standard: 50%"
+      },
+      "width": {
+        "name": "Bildbreite:",
+        "hint": "Breite des Symbols in Pixeln. Standard: 100px"
+      },
+      "height": {
+        "name": "Bildhöhe:",
+        "hint": "Höhe des Symbols in Pixeln. Standard: 100px"
+      },
+      "initRotation": {
+        "name": "Bildrotation:",
+        "hint": "Legt die anfängliche Rotation des Bildes fest. Kann verwendet werden, um das Bild zu drehen, wenn die Rotationsanimation deaktiviert ist. Standard: 0"
+      },
 
-  "PAUSEICON.icon_settings_name": "Symbol-Einstellungen",
-  "PAUSEICON.path_name": "Datenpfad des Pausensymbols: ",
-  "PAUSEICON.path_hint": "Ordner und Dateiname, wo sich Ihr alternatives Pausensymbol innerhalb der Foundry VTT Daten befindet. Klicken Sie auf die Auswahltaste, um Ihr Symbol auszuwählen. Geben Sie 'None' ein, für kein Bild.",
-  "PAUSEICON.opacity_name": "Deckkraft %: ",
-  "PAUSEICON.opacity_hint": "Wert zwischen 0 und 100, niedriger bedeutet durchsichtiger.",
-  "PAUSEICON.dimensions_name": "Abmessungen (Breite x Höhe): ",
-  "PAUSEICON.dimensions_hint": "Breite und Höhe des Symbols in Pixel.",
-  "PAUSEICON.speed_name": "Geschwindigkeit:",
-  "PAUSEICON.speed_hint": "Sekunden pro Umdrehung, 0 bedeutet keine Drehung.",
-  "PAUSEICON.reverse_name": "Umkehren:",
-  "PAUSEICON.reverse_hint": "Die Drehrichtung umkehren.",
-  "PAUSEICON.icon_vertical_name": "Vertikale Anpassung in Pixeln:",
-  "PAUSEICON.icon_vertical_hint": "Anzahl der Pixel, um das Symbol zu verschieben. Negative Werte bewegen das Bild nach oben, positive nach unten.",
-
-  "PAUSEICON.text_settings_name": "Texteinstellungen",
-  "PAUSEICON.text_name": "Pausennachrichten: ",
-  "PAUSEICON.text_hint": "Nachrichten, die bei Pause erscheinen.",
-  "PAUSEICON.sync": "Synchronisation aktivieren: ",
-  "PAUSEICON.sync_hint": "Synchronisation des Pausentextes zwischen den Spielern aktivieren oder deaktivieren.",
-  "PAUSEICON.textChangeInterval": "Textintervall ändern: ",
-  "PAUSEICON.textChangeInterval_hint": "Sekunden, bis der nächste Zufallstext angezeigt wird. 0 und negative Werte deaktivieren das.",
-  "PAUSEICON.fontSize_name": "Schriftgröße (em): ",
-  "PAUSEICON.fontSize_hint": "Größe der Schrift in em, Standard ist 2.",
-  "PAUSEICON.shadow_name": "Schlagschatten aktivieren: ",
-  "PAUSEICON.shadow_hint": "Wenn aktiviert, gibt es einen Schlagschatten unter dem Text.",
-  "PAUSEICON.textColor_name": "Farbe: ",
-  "PAUSEICON.textColor_hint": "Entweder Hexcode (z.B. #EEEEEE) oder HTML-Farbnamen (z.B. CornflowerBlue).",
-  "PAUSEICON.saveButton": "Einstellungen speichern und neu laden",
-  "PAUSEICON.fontFamily_name": "Schriftart: ",
-  "PAUSEICON.fontFamily_hint": "Zu verwendende Schriftart. Funktioniert gut mit dem Custom Fonts Modul. Überprüfen Sie, ob der Name korrekt geschrieben ist."
+      "speed": {
+        "name": "Geschwindigkeit:",
+        "hint": "Sekunden pro Umdrehung, 0 bedeutet keine Rotation. Standard: 5"
+      },
+      "reverse": {
+        "name": "Rückwärts:",
+        "hint": "Drehrichtung umkehren."
+      },
+      "verticalPos": {
+        "name": "Vertikale Position:",
+        "hint": "Vertikale Position des Pause-Elements auf dem Bildschirm. 0 = oben, 100 = unten. Standard: 50"
+      },
+      "horizontalPos": {
+        "name": "Horizontale Position:",
+        "hint": "Horizontale Position auf dem Bildschirm. 0 = ganz links, 100 = ganz rechts. Funktioniert am besten ohne Hintergrund. Standard: 50"
+      },
+      "gradientBackground": {
+        "name": "Verlaufshintergrund:",
+        "hint": "Schaltet den Hintergrund hinter dem Bild und der Meldung um."
+      },
+      "gradientColor": {
+        "name": "Verlauffarbe:",
+        "hint": "Legt die Farbe des Farbverlaufs fest. Standard: #0b0a13"
+      },
+      "gradientOpacity": {
+        "name": "Verlauf Deckkraft:",
+        "hint": "Legt die Deckkraft des mittleren Verlaufsbereichs fest. Standard: 128"
+      }
+    },
+    "text": {
+      "messages": {
+        "name": "Pausenmeldungen:",
+        "hint": "Nachdem du deine Einstellungen gespeichert hast, musst du das Spiel ERNEUT PAUSIEREN, damit deine vorgenommenen Änderungen zu sehen sind!",
+        "label": "Pausenmeldungen",
+        "submenuTitle": "Pausenmeldungen",
+        "saveButton": "Speichern",
+        "messageHint": "Du kannst \\n für einen Zeilenumbruch in deinen Meldungen verwenden!"
+      },
+      "textSync": {
+        "name": "Synchronisierung aktivieren:",
+        "hint": "Aktiviert oder deaktiviert die Synchronisierung des Pausentextes zwischen den Spielern."
+      },
+      "changeInterval": {
+        "name": "Textwechsel-Intervall:",
+        "hint": "Sekunden bis zur Anzeige eines neuen zufälligen Textes. 0 oder negative Werte deaktivieren diese Funktion. Standard: 15s"
+      },
+      "fontFamily": {
+        "name": "Schriftart:",
+        "hint": "Name der zu verwendenden Schriftart. Funktioniert gut mit dem Modul 'Custom Fonts' und Google Fonts. Achte auf korrekte Schreibweise. Foundry Standard: Amiri"
+      },
+      "useGoogleFont": {
+        "name": "Google Font:",
+        "hint": "Aktiviere diese Option, wenn die Schriftart von Google Fonts stammt, andernfalls wird sie nicht funktionieren. Standard: aus"
+      }
+      "fontColor": {
+        "name": "Schriftfarbe:",
+        "hint": "Farbhexcode der Schrift. Standard: #ada7b8"
+      },
+      "fontSize": {
+        "name": "Schriftgröße (em):",
+        "hint": "Größe der Schrift in em. Standard: 2em"
+      },
+      "fontBold": {
+        "name": "Fett:",
+        "hint": "Schrift wird fett dargestellt. Manche Schriftarten unterstützen das nicht. Standard: an"
+      },
+      "fontItalic": {
+        "name": "Kursiv:",
+        "hint": "Schrift wird kursiv dargestellt. Manche Schriftarten unterstützen das nicht. Standard: aus"
+      },
+      "fontSmallCaps": {
+        "name": "Kapitälchen:",
+        "hint": "Aktiviert die Variante 'small-caps'. Kleinbuchstaben werden als kleinere Großbuchstaben dargestellt. Standard: aus"
+      },
+      "lineHeight": {
+        "name": "Zeilenhöhe (rem):",
+        "hint": "Höhe der Textzeilen in rem, am besten für mehrzeiligen Text ist 2. Standard: 1rem."
+      },
+      "textShadow": {
+        "name": "Schlagschatten aktivieren:",
+        "hint": "Wenn aktiviert, wird ein Schlagschatten unter dem Text angezeigt."
+      },
+      "textAlign": {
+        "name": "Textausrichtung:",
+        "hint": "Ausrichtung von mehrzeiligem Text. Standard: Zentriert",
+        "choices": {
+          "center": "Zentriert",
+          "left": "Links",
+          "right": "Rechts"
+        }
+      },
+      "fontCaps": {
+        "name": "Textoptionen:",
+        "hint": "Legt verschiedene Optionen zur Textumwandlung fest, Standard ist alles in Großbuchstaben.",
+        "choices": {
+          "none": "Keine",
+          "capitalize": "Erster Buchstabe groß",
+          "uppercase": "Alles Großbuchstaben"
+        }
+      }
+    },
+    "animation": {
+      "animationType": {
+        "name": "Animationstyp:",
+        "hint": "Animation für das gesamte Pause-Element. Standard: Pulsieren",
+        "choices": {
+          "none": "Keine",
+          "pulse": "Pulsieren",
+          "rainbow": "Regenbogen",
+          "breath": "Atmen",
+          "glow": "Leuchten"
+        }
+      },
+      "animationDuration": {
+        "name": "Animationsdauer:",
+        "hint": "Dauer der Animation in Sekunden. Standard: 3s"
+      },
+      "animationColor": {
+        "name": "Animationsfarbe:",
+        "hint": "Einige Animationen können in der Farbe verändert werden. Standard: #ffffff"
+      }
+    }
+  }
 }
+

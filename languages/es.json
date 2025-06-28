@@ -1,36 +1,147 @@
 {
-  "PAUSEICON.settings": "Ajustes: ",
-  "PAUSEICON.settingsButton": "Submenu de Ajustes",
-  "PAUSEICON.settingsFormHeader": "Alternative Pause Text - Ajustes",
-
-  "PAUSEICON.icon_settings_name": "Ajustes de Icono",
-  "PAUSEICON.path_name": "Ruta al icono de pausa: ",
-  "PAUSEICON.path_hint": "Directorio y archivo al icono de pausa alternativo en la carpeta de datos en Foundry VTT. Da clic en el boton para seleccionar tu icono. Escribe 'None' para no poner imagen.",
-  "PAUSEICON.opacity_name": "Opacidad %: ",
-  "PAUSEICON.opacity_hint": "Porcentaje de Opacidad. A menos porcentaje mas traslucido.",
-  "PAUSEICON.dimensions_name": "Dimension (Ancho x Alto): ",
-  "PAUSEICON.dimensions_hint": "Ancho y Alto del icono en pixeles.",
-  "PAUSEICON.speed_name": "Velocidad: ",
-  "PAUSEICON.speed_hint": "Segundos por rotacion, 0 para no rotar.",
-  "PAUSEICON.reverse_name": "Reverso",
-  "PAUSEICON.reverse_hint": "Revertir la rotación.",
-  "PAUSEICON.icon_vertical_name": "Ajuste verticial en pixeles: ",
-  "PAUSEICON.icon_vertical_hint": "Numero de pixeles para mover el icono. Valores negativos mueven la imagen hacia arriba, positivos hacia abajo.",
-
-  "PAUSEICON.text_settings_name": "Ajustes de Texto",
-  "PAUSEICON.text_name": "Mensajes de Pausa: ",
-  "PAUSEICON.text_hint": "Al pausar, se mostrara un mensaje aleatorio de la lista.",
-  "PAUSEICON.sync": "Habilitar Sincronización: ",
-  "PAUSEICON.sync_hint": "Habilitar o deshabilitar la sincronización del texto de pausa entre los jugadores.",
-  "PAUSEICON.textChangeInterval": "Cambiar intervalo de texto: ",
-  "PAUSEICON.textChangeInterval_hint": "Segundos hasta que se muestra el siguiente texto aleatorio. 0 y valores negativos lo desactivan.",
-  "PAUSEICON.fontSize_name": "Tamaño de fuente (em): ",
-  "PAUSEICON.fontSize_hint": "Por defecto: 2",
-  "PAUSEICON.shadow_name": "Sombra paralela: ",
-  "PAUSEICON.shadow_hint": "Cuando se habilita, se mostrara el cuadro sombreado detras del texto.",
-  "PAUSEICON.textColor_name": "Color:",
-  "PAUSEICON.textColor_hint": "Hexcode (eg. #EEEEEE) o HTML(eg. CornflowerBlue)",
-  "PAUSEICON.saveButton": "Guardar Ajustes y volver a cargar",
-  "PAUSEICON.fontFamily_name": "Fuente: ",
-  "PAUSEICON.fontFamily_hint": "Nombre de la fuente a utilizar. Puedes utilizar fuentes con el modulo Custom Fonts. Revisa que este bien escrito."
+  "pauseText": {
+    "image": {
+      "source": {
+        "name": "Ruta del archivo de imagen de pausa:",
+        "hint": "Escribe None para no usar imagen."
+      },
+      "opacity": {
+        "name": "Opacidad de la imagen (%):",
+        "hint": "Valor entre 0 y 100, menor significa más translúcido. Por defecto: 50%"
+      },
+      "width": {
+        "name": "Ancho de la imagen:",
+        "hint": "Ancho del ícono en píxeles. Por defecto: 100px"
+      },
+      "height": {
+        "name": "Alto de la imagen:",
+        "hint": "Altura del ícono en píxeles. Por defecto: 100px"
+      },
+      "initRotation": {
+        "name": "Rotación de la imagen:",
+        "hint": "Establece la rotación inicial de la imagen. Se puede usar para rotarla si la animación de rotación está desactivada. Predeterminado: 0"
+      },
+      "speed": {
+        "name": "Velocidad:",
+        "hint": "Segundos por rotación, 0 es sin rotación. Por defecto: 5"
+      },
+      "reverse": {
+        "name": "Reversa:",
+        "hint": "Invierte la rotación."
+      },
+      "verticalPos": {
+        "name": "Posición vertical:",
+        "hint": "Posición vertical del elemento de pausa en la pantalla. 0 es arriba del todo, 100 es abajo del todo. Por defecto: 50"
+      },
+      "horizontalPos": {
+        "name": "Posición horizontal:",
+        "hint": "Posición horizontal del elemento de pausa en la pantalla. 0 es totalmente a la izquierda, 100 totalmente a la derecha. Funciona mejor con fondo degradado desactivado. Por defecto: 50"
+      },
+      "gradientBackground": {
+        "name": "Fondo degradado:",
+        "hint": "Activa o desactiva el fondo detrás del ícono y el mensaje."
+      },
+      "gradientColor": {
+        "name": "Color del degradado:",
+        "hint": "Define el color del degradado. Por defecto: #0b0a13"
+      },
+      "gradientOpacity": {
+        "name": "Opacidad del degradado:",
+        "hint": "Define la opacidad del fondo en el centro del degradado. Por defecto: 128"
+      }
+    },
+    "text": {
+      "messages": {
+        "name": "Mensajes de pausa:",
+        "hint": "¡Después de guardar los ajustes, vuelve a poner el juego en pausa para ver tus cambios!",
+        "label": "Mensajes de pausa",
+        "submenuTitle": "Mensajes de pausa",
+        "saveButton": "Guardar",
+        "messageHint": "¡Puedes usar \\n para insertar saltos de línea en tus mensajes!"
+      },
+      "textSync": {
+        "name": "Habilitar sincronización:",
+        "hint": "Habilita o deshabilita la sincronización del texto de pausa entre los jugadores."
+      },
+      "changeInterval": {
+        "name": "Intervalo de cambio de texto:",
+        "hint": "Segundos hasta que se muestre el siguiente texto aleatorio. Valores 0 o negativos desactivan esta función. Por defecto: 15s"
+      },
+      "fontFamily": {
+        "name": "Fuente:",
+        "hint": "Nombre de la fuente a utilizar. Funciona bien con el módulo 'Custom Fonts' y Google Fonts. Asegúrate de que el nombre esté bien escrito. Fuente predeterminada de Foundry: Amiri"
+      },
+      "useGoogleFont": {
+        "name": "Fuente de Google:",
+        "hint": "Marca esta opción si la fuente proviene de Google Fonts, de lo contrario no funcionará. Predeterminado: false"
+      },
+      "fontColor": {
+        "name": "Color de fuente:",
+        "hint": "Código hexadecimal del color de la fuente. Predeterminado: #ada7b8"
+      },
+      "fontSize": {
+        "name": "Tamaño de fuente (em):",
+        "hint": "Tamaño de la fuente en em. Predeterminado: 2em"
+      },
+      "fontBold": {
+        "name": "Negrita:",
+        "hint": "Aplica negrita a la fuente. Algunas fuentes no lo admiten. Predeterminado: true"
+      },
+      "fontItalic": {
+        "name": "Cursiva:",
+        "hint": "Aplica cursiva a la fuente. Algunas fuentes no lo admiten. Predeterminado: false"
+      },
+      "fontSmallCaps": {
+        "name": "Versalitas:",
+        "hint": "Activa la variante 'small-caps'. Las minúsculas se convierten en mayúsculas pequeñas. Predeterminado: false"
+      },
+      "lineHeight": {
+        "name": "Altura de línea (rem):",
+        "hint": "Altura de las líneas de texto en rem. Lo mejor para texto en varias líneas es 2. Por defecto: 1rem"
+      },
+      "textShadow": {
+        "name": "Habilitar sombra:",
+        "hint": "Cuando está habilitado, se muestra una sombra debajo del texto."
+      },
+      "textAlign": {
+        "name": "Alinear texto multilineal:",
+        "hint": "Alinea el texto multilineal dentro de su caja de visualización. Por defecto: Centro",
+        "choices": {
+          "center": "Centro",
+          "left": "Izquierda",
+          "right": "Derecha"
+        }
+      },
+      "fontCaps": {
+        "name": "Opciones de texto:",
+        "hint": "Define diversas opciones para transformar el texto. Por defecto: Mayúsculas",
+        "choices": {
+          "none": "Ninguna",
+          "capitalize": "Primera letra en mayúscula",
+          "uppercase": "Todas en mayúsculas"
+        }
+      }
+    },
+    "animation": {
+      "animationType": {
+        "name": "Tipo de animación:",
+        "hint": "Define la animación para todo el elemento de pausa. Por defecto: Pulso",
+        "choices": {
+          "none": "Ninguna",
+          "pulse": "Pulso",
+          "rainbow": "Arcoíris",
+          "breath": "Respiración",
+          "glow": "Brillo"
+        }
+      },
+      "animationDuration": {
+        "name": "Duración de la animación:",
+        "hint": "Define la duración de la animación en segundos. Por defecto: 3s"
+      },
+      "animationColor": {
+        "name": "Color de la animación:",
+        "hint": "En algunas animaciones se puede cambiar el color. Por defecto: #ffffff"
+      }
+    }
+  }
 }
