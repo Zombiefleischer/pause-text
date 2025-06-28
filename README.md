@@ -8,8 +8,6 @@ A feature-rich enhancement of the original [pause-icon](https://gitlab.com/Freez
 
 > 💬 Add flavor and flair to your game's **pause screen** with customizable text, animations, and fonts!
 
----
-
 ## ✨ Features
 
 - 🔤 **Display a rotating list of messages** during pauses
@@ -20,13 +18,9 @@ A feature-rich enhancement of the original [pause-icon](https://gitlab.com/Freez
 - 🌐 **Google Fonts support**
 - 🎨 **Adjust font, size, color, caps, bold, italic, and more**
 
----
-
 ## ⚙️ Dependencies
 
 - `[socketlib](https://github.com/farling42/foundryvtt-socketlib)` (for message synchronization)
-
----
 
 ## 📦 Installation
 
@@ -39,8 +33,6 @@ https://github.com/Zombiefleischer/pause-text/releases/latest/download/module.js
 
 - Or download the [latest module.zip](https://github.com/Zombiefleischer/pause-text/releases/latest) and install manually
 
----
-
 ## 🧩 Customization
 
 All options are configurable in the module settings, including:
@@ -51,16 +43,12 @@ All options are configurable in the module settings, including:
 - Background gradient
 - Icon & positioning
 
----
-
 ## 🧠 Based on
 
 This is a fork of [pause-icon](https://gitlab.com/Freeze020/pause-icon/), extended with more features.
 
----
-
 ## 📸 Screenshots
 
-![media/Screenshot1.png]
+![Lots of changes and options](/media/Screenshot1.png)
 
-![media/Screenshot2.png]
+![Gif in the corner, TPK incoming](/media/Screenshot2.png)
