@@ -99,6 +99,10 @@
         "name": "Line Height (rem):",
         "hint": "Height of text lines in rem, best for multiline text is 2. Default: 1rem"
       },
+      "lineOffset": {
+        "name": "Vertical Line Offset (px):",
+        "hint": "Offset of the message line in relation to the image. Negative values offset upwards, positive values downwards. Works best with background off. Default: 0px"
+      },
       "textShadow": {
         "name": "Enable Drop Shadow:",
         "hint": "When enabled there is a drop shadow under the text."

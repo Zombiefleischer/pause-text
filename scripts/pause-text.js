@@ -143,6 +143,7 @@ function displayPauseText(selectedMessage) {
   pauseText.style.maxWidth = "90%";
   pauseText.style.margin = "1rem auto 0 auto";
   pauseText.style.padding = "0 1em";
+  pauseText.style["transform"] = `translateY(${setting("lineOffset")}px)`;
   
   pauseText.style.textShadow = setting("textShadow") ? "2px 2px black" : "none";
 

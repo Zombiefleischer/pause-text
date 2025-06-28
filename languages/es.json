@@ -99,6 +99,10 @@
         "name": "Altura de línea (rem):",
         "hint": "Altura de las líneas de texto en rem. Lo mejor para texto en varias líneas es 2. Por defecto: 1rem"
       },
+      "lineOffset": {
+        "name": "Desplazamiento vertical de línea (px):",
+        "hint": "Desplazamiento del mensaje en relación con la imagen. Valores negativos lo suben, positivos lo bajan. Funciona mejor sin fondo. Predeterminado: 0px"
+      },
       "textShadow": {
         "name": "Habilitar sombra:",
         "hint": "Cuando está habilitado, se muestra una sombra debajo del texto."

@@ -248,6 +248,15 @@ export function registerSettings() {
     type: Number,
   });
 
+  game.settings.register(MODULE_ID, "lineOffset", {
+    name: game.i18n.localize("pauseText.text.lineOffset.name"),
+    hint: game.i18n.localize("pauseText.text.lineOffset.hint"),
+    scope: "world",
+    config: true,
+    default: 0,
+    type: Number,
+  });
+
   game.settings.register(MODULE_ID, "textShadow", {
     name: game.i18n.localize("pauseText.text.textShadow.name"),
     hint: game.i18n.localize("pauseText.text.textShadow.hint"),

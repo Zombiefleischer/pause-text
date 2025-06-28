@@ -100,6 +100,10 @@
         "name": "Zeilenhöhe (rem):",
         "hint": "Höhe der Textzeilen in rem, am besten für mehrzeiligen Text ist 2. Standard: 1rem."
       },
+      "lineOffset": {
+        "name": "Vertikaler Zeilenversatz (px):",
+        "hint": "Versatz der Textzeile in Bezug auf das Bild. Negative Werte verschieben nach oben, positive nach unten. Funktioniert am besten ohne Hintergrund. Standard: 0px"
+      },
       "textShadow": {
         "name": "Schlagschatten aktivieren:",
         "hint": "Wenn aktiviert, wird ein Schlagschatten unter dem Text angezeigt."

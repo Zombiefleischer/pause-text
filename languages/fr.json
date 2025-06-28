@@ -99,6 +99,10 @@
         "name": "Hauteur de ligne (rem) :",
         "hint": "Hauteur des lignes de texte en rem. 2 convient bien pour plusieurs lignes. Par défaut : 1rem"
       },
+      "lineOffset": {
+        "name": "Décalage vertical de la ligne (px) :",
+        "hint": "Décalage du message par rapport à l’image. Les valeurs négatives le déplacent vers le haut, les positives vers le bas. Fonctionne mieux sans arrière-plan. Par défaut : 0px"
+      },
       "textShadow": {
         "name": "Activer l’ombre portée :",
         "hint": "Lorsqu’elle est activée, une ombre est affichée sous le texte."
