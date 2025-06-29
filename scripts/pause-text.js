@@ -78,11 +78,14 @@ function setImage(pauseElement) {
     pauseImg.style.width = `${imgWidth}px`;
     pauseImg.style.height = `${imgHeight}px`;
     pauseImg.style.rotate = `${setting("initRotation")}deg`;
-    pauseImg.style.cssText += `--fa-animation-duration: ${imgRotationSpeed}s`;
-    if (imgRotationReversed) {
-      pauseImg.style.cssText += `--fa-animation-direction: reverse`;
+    if (imgRotationSpeed > 0) {
+      pauseImg.classList.add("fa-spin");
+      pauseImg.style.cssText += `--fa-animation-duration: ${imgRotationSpeed}s`;
+      if (imgRotationReversed) {
+        pauseImg.style.cssText += `--fa-animation-direction: reverse`;
+      }
     }
-  }
+  } 
 }
 
 
