@@ -67,6 +67,10 @@
         "name": "Intervalo de cambio de texto:",
         "hint": "Segundos hasta que se muestre el siguiente texto aleatorio. Valores 0 o negativos desactivan esta función. Por defecto: 15s"
       },
+      "textWidth": {
+        "name": "Cambiar ancho del texto:",
+        "hint": "Cambia el ancho del texto en proporción al ancho de la ventana. Predeterminado: 90%"
+      },
       "fontFamily": {
         "name": "Fuente:",
         "hint": "Nombre de la fuente a utilizar. Funciona bien con el módulo 'Custom Fonts' y Google Fonts. Asegúrate de que el nombre esté bien escrito. Fuente predeterminada de Foundry: Amiri"

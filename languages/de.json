@@ -68,6 +68,10 @@
         "name": "Textwechsel-Intervall:",
         "hint": "Sekunden bis zur Anzeige eines neuen zufälligen Textes. 0 oder negative Werte deaktivieren diese Funktion. Standard: 15s"
       },
+      "textWidth": {
+        "name": "Textbreite ändern:",
+        "hint": "Ändert die Textbreite proportional zur Breite des Viewports. Standard: 90%"
+      },
       "fontFamily": {
         "name": "Schriftart:",
         "hint": "Name der zu verwendenden Schriftart. Funktioniert gut mit dem Modul 'Custom Fonts' und Google Fonts. Achte auf korrekte Schreibweise. Foundry Standard: Amiri"

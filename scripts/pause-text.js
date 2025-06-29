@@ -143,7 +143,7 @@ function displayPauseText(selectedMessage) {
   pauseText.style.fontVariant = setting("fontSmallCaps") ? "small-caps" : "normal";
 
   // Improve spacing with long text
-  pauseText.style.maxWidth = "90%";
+  pauseText.style["max-width"] = `${setting("textWidth")}%`;
   pauseText.style.margin = "1rem auto 0 auto";
   pauseText.style.padding = "0 1em";
   pauseText.style["transform"] = `translateY(${setting("lineOffset")}px)`;

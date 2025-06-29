@@ -67,6 +67,10 @@
         "name": "Change Text Interval:",
         "hint": "Seconds until the next random text is displayed. 0 and negative values disables this. Default: 15s"
       },
+      "textWidth":{
+        "name": "Change Text Width:",
+        "hint": "Changes the text width proportional to the width of the viewport. Default: 90%"
+      },
       "fontFamily": {
         "name": "Font:",
         "hint": "Font name to be used. It works well with Custom Fonts module and Google Fonts. Check the name is well written. Foundry Default: Amiri"

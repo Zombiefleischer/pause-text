@@ -67,6 +67,10 @@
         "name": "Intervalle de changement de texte :",
         "hint": "Secondes avant l’affichage d’un nouveau message aléatoire. 0 ou une valeur négative désactive cette fonction. Par défaut : 15s"
       },
+      "textWidth": {
+        "name": "Modifier la largeur du texte :",
+        "hint": "Modifie la largeur du texte proportionnellement à la largeur de la fenêtre. Par défaut : 90%"
+      },
       "fontFamily": {
         "name": "Police :",
         "hint": "Nom de la police à utiliser. Fonctionne bien avec le module 'Custom Fonts' et Google Fonts. Vérifiez que le nom est bien écrit. Police par défaut de Foundry : Amiri"

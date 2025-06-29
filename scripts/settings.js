@@ -176,6 +176,20 @@ export function registerSettings() {
     type: Number,
   });
 
+  game.settings.register(MODULE_ID, "textWidth", {
+    name: game.i18n.localize("pauseText.text.textWidth.name"),
+    hint: game.i18n.localize("pauseText.text.textWidth.hint"),
+    scope: "world",
+    config: true,
+    default: 90,
+    type: Number,
+    range: {
+      min: 0,
+      max: 100,
+      step: 1,
+    },
+  });
+
   game.settings.register(MODULE_ID, "fontFamily", {
     name: game.i18n.localize("pauseText.text.fontFamily.name"),
     hint: game.i18n.localize("pauseText.text.fontFamily.hint"),
