@@ -84,6 +84,8 @@ function setImage(pauseElement) {
       if (imgRotationReversed) {
         pauseImg.style.cssText += `--fa-animation-direction: reverse`;
       }
+    } else {
+      pauseImg.style.cssText += `--fa-animation-duration: 0s`;
     }
   } 
 }
