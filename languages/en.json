@@ -41,7 +41,7 @@
         "name": "Gradient Background:",
         "hint": "Toggles the background behind the icon and the message."
       },
-      "gradientColor":{
+      "gradientColor": {
         "name": "Gradient Color:",
         "hint": "Sets the color of the gradient. Default: #0b0a13"
       },
@@ -63,11 +63,15 @@
         "name": "Enable Synchronization:",
         "hint": "Enable or disable synchronization of the pause text between players."
       },
+      "textRandomness": {
+        "name": "Increase perceived randomness:",
+        "hint": "Enables a Tetris The Grand Master inspired algorithm, that increases the human perceived randomness. Disables true randomness. Default: false"
+      },
       "changeInterval": {
         "name": "Change Text Interval:",
         "hint": "Seconds until the next random text is displayed. 0 and negative values disables this. Default: 15s"
       },
-      "textWidth":{
+      "textWidth": {
         "name": "Change Text Width:",
         "hint": "Changes the text width proportional to the width of the viewport. Default: 90%"
       },

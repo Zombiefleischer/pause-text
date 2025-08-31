@@ -2,12 +2,16 @@ import { MODULE_ID } from "./main.js";
 let socket;
 let pauseTextTimer = null;
 
-
-// Little alias function to get the settings from Foundry
-let setting = key => {
-  return game.settings.get(MODULE_ID, key);
+const pauseTextHistory = {
+  lines: [],
+  history: [],
+  limit: 0,
 };
 
+// Little alias function to get the settings from Foundry
+let setting = (key) => {
+  return game.settings.get(MODULE_ID, key);
+};
 
 // Create the inital sockets and functions asociated with the socket
 Hooks.once("socketlib.ready", () => {
@@ -16,14 +20,15 @@ Hooks.once("socketlib.ready", () => {
   socket.register("setMessageAndBackground", setMessageAndBackground);
 });
 
-
 // The main function to set the Pause UI
 export async function setPauseUI() {
   // Get pause status
   const pauseElement = document.getElementById("pause");
 
   // Return if pause is not displayed
-  if (!pauseElement) { return; } else {
+  if (!pauseElement) {
+    return;
+  } else {
     // set the Image Element
     setImage(pauseElement);
 
@@ -35,7 +40,7 @@ export async function setPauseUI() {
       clearInterval(pauseTextTimer);
       pauseTextTimer = null;
     }
-    
+
     // Check for the message change interval
     const changeInterval = setting("changeInterval");
     if (changeInterval <= 0) {
@@ -52,8 +57,6 @@ export async function setPauseUI() {
   }
 }
 
-
-
 // Function to set the pause image
 function setImage(pauseElement) {
   // Get the html element
@@ -63,9 +66,9 @@ function setImage(pauseElement) {
   const imgPath = setting("pauseImage") || "None";
   const imgWidth = setting("imgWidth");
   const imgHeight = setting("imgHeight");
-  
+
   // Check if the image will be displayed
-  if (imgPath === "None" || imgWidth === 0 || imgHeight === 0){
+  if (imgPath === "None" || imgWidth === 0 || imgHeight === 0) {
     pauseImg.hidden = true;
   } else {
     const imgOpacity = setting("imgOpacity") / 100;
@@ -87,15 +90,14 @@ function setImage(pauseElement) {
     } else {
       pauseImg.style.cssText += `--fa-animation-duration: 0s`;
     }
-  } 
+  }
 }
-
 
 // Function to check if the message gets synced or not
 function updatePauseDisplay() {
   // Get sync
   const syncEnabled = setting("textSync");
-  
+
   // Get random message
   const selectedMessage = selectRandomPauseText(setting("messages"));
 
@@ -103,25 +105,21 @@ function updatePauseDisplay() {
     socket.executeAsGM("setMessageAndBackground", true, selectedMessage);
   } else {
     setMessageAndBackground(false, selectedMessage);
-  }   
-}
-
-
-// Function to get the random message and call the socket or not
-function setMessageAndBackground(syncEnabled, selectedMessage) {
-
-  if (syncEnabled) {
-    if (game.user.isGM) {
-      socket.executeForEveryone("displayPauseText", selectedMessage)
-    }
-  } else {
-    displayPauseText(selectedMessage)
   }
 }
 
+// Function to get the random message and call the socket or not
+function setMessageAndBackground(syncEnabled, selectedMessage) {
+  if (syncEnabled) {
+    if (game.user.isGM) {
+      socket.executeForEveryone("displayPauseText", selectedMessage);
+    }
+  } else {
+    displayPauseText(selectedMessage);
+  }
+}
 
 function displayPauseText(selectedMessage) {
-  
   const html = document.querySelector("#pause");
 
   // Get caption
@@ -142,16 +140,17 @@ function displayPauseText(selectedMessage) {
   pauseText.style.fontFamily = setting("fontFamily");
   pauseText.style.fontStyle = setting("fontItalic") ? "italic" : "normal";
   pauseText.style.fontWeight = setting("fontBold") ? "bold" : "normal";
-  pauseText.style.fontVariant = setting("fontSmallCaps") ? "small-caps" : "normal";
+  pauseText.style.fontVariant = setting("fontSmallCaps")
+    ? "small-caps"
+    : "normal";
 
   // Improve spacing with long text
   pauseText.style["max-width"] = `${setting("textWidth")}%`;
   pauseText.style.margin = "1rem auto 0 auto";
   pauseText.style.padding = "0 1em";
   pauseText.style["transform"] = `translateY(${setting("lineOffset")}px)`;
-  
-  pauseText.style.textShadow = setting("textShadow") ? "2px 2px black" : "none";
 
+  pauseText.style.textShadow = setting("textShadow") ? "2px 2px black" : "none";
 
   // Change the gradient background
   const background = setting("gradientBackground");
@@ -165,9 +164,10 @@ function displayPauseText(selectedMessage) {
   const imgHeight = !imgElement.hidden ? setting("imgHeight") : 0;
 
   // Set the background color
-  const backgroundOpacity = setting("gradientOpacity").toString(16).padStart(2, '0');
+  const backgroundOpacity = setting("gradientOpacity")
+    .toString(16)
+    .padStart(2, "0");
   html.style.background = `linear-gradient(to right, transparent 0%, ${gradientColor}${backgroundOpacity} 40%, ${gradientColor}${backgroundOpacity} 60%, transparent 100%)`;
-
 
   // Set the background height
   html.style.height = `${Math.round(64 + imgHeight + lineHeight)}px`;
@@ -241,8 +241,34 @@ function applyAnimation(html) {
 }
 
 function selectRandomPauseText(allText) {
-  const lines = allText.split(/\n/);
-  return lines[Math.floor(Math.random() * lines.length)];
+  const lines = allText.split(/\n/).filter((l) => l.trim());
+  if (lines.length === 0) return "";
+
+  if (!setting("textRandomness")) {
+    return lines[Math.floor(Math.random() * lines.length)];
+  }
+
+  // If the source lines changed, reset history
+  if (pauseTextHistory.lines.join("\n") !== lines.join("\n")) {
+    pauseTextHistory.lines = lines;
+    pauseTextHistory.history = [];
+    pauseTextHistory.limit = Math.ceil(lines.length / 2);
+  }
+
+  let candidate;
+  const attempts = 4;
+  for (let i = 0; i < attempts; i++) {
+    candidate = lines[Math.floor(Math.random() * lines.length)];
+    if (!pauseTextHistory.history.includes(candidate)) break;
+  }
+
+  // Update history (treat it like a queue)
+  pauseTextHistory.history.push(candidate);
+  if (pauseTextHistory.history.length > pauseTextHistory.limit) {
+    pauseTextHistory.history.shift();
+  }
+
+  return candidate;
 }
 
 function measureHeight(element) {
@@ -252,7 +278,7 @@ function measureHeight(element) {
   for (const prop of computed) {
     clone.style[prop] = computed.getPropertyValue(prop);
   }
-  
+
   clone.style.position = "absolute";
   clone.style.visibility = "hidden";
   clone.style.animation = "none";
@@ -263,7 +289,7 @@ function measureHeight(element) {
   document.body.appendChild(clone);
   const height = clone.getBoundingClientRect().height;
   document.body.removeChild(clone);
-  
+
   return height;
 }
 

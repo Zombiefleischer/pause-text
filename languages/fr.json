@@ -63,6 +63,11 @@
         "name": "Activer la synchronisation :",
         "hint": "Active ou désactive la synchronisation du texte de pause entre les joueurs."
       },
+      "textRandomness": {
+        "name": "Augmenter l’aléatoire perçu :",
+        "hint": "Active un algorithme inspiré de Tetris The Grand Master qui augmente l’aléatoire perçue par l’humain. Désactive le véritable hasard. Valeur par défaut : false"
+      },
+
       "changeInterval": {
         "name": "Intervalle de changement de texte :",
         "hint": "Secondes avant l’affichage d’un nouveau message aléatoire. 0 ou une valeur négative désactive cette fonction. Par défaut : 15s"
@@ -153,4 +158,3 @@
     }
   }
 }
-

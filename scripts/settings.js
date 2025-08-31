@@ -1,10 +1,10 @@
 import { MODULE_ID } from "./main.js";
 import { messages } from "./messages.js";
-const { DialogV2, HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
+const { DialogV2, HandlebarsApplicationMixin, ApplicationV2 } =
+  foundry.applications.api;
 
 // Register all settings in the settings menu
 export function registerSettings() {
-
   game.settings.register(MODULE_ID, "pauseImage", {
     name: game.i18n.localize("pauseText.image.source.name"),
     hint: game.i18n.localize("pauseText.image.source.hint"),
@@ -149,7 +149,7 @@ export function registerSettings() {
     type: PauseMessagesSubmenu,
     icon: "fa fa-file-text",
   });
-  
+
   // Create the hidden message settings value
   game.settings.register(MODULE_ID, "messages", {
     scope: "world",
@@ -161,6 +161,15 @@ export function registerSettings() {
   game.settings.register(MODULE_ID, "textSync", {
     name: game.i18n.localize("pauseText.text.textSync.name"),
     hint: game.i18n.localize("pauseText.text.textSync.hint"),
+    scope: "world",
+    config: true,
+    default: false,
+    type: Boolean,
+  });
+
+  game.settings.register(MODULE_ID, "textRandomness", {
+    name: game.i18n.localize("pauseText.text.textRandomness.name"),
+    hint: game.i18n.localize("pauseText.text.textRandomness.hint"),
     scope: "world",
     config: true,
     default: false,
@@ -233,7 +242,7 @@ export function registerSettings() {
     config: true,
     default: true,
     type: Boolean,
-  })
+  });
 
   game.settings.register(MODULE_ID, "fontItalic", {
     name: game.i18n.localize("pauseText.text.fontItalic.name"),
@@ -242,7 +251,7 @@ export function registerSettings() {
     config: true,
     default: false,
     type: Boolean,
-  })
+  });
 
   game.settings.register(MODULE_ID, "fontSmallCaps", {
     name: game.i18n.localize("pauseText.text.fontSmallCaps.name"),
@@ -251,7 +260,7 @@ export function registerSettings() {
     config: true,
     default: false,
     type: Boolean,
-  })
+  });
 
   game.settings.register(MODULE_ID, "lineHeight", {
     name: game.i18n.localize("pauseText.text.lineHeight.name"),
@@ -288,9 +297,9 @@ export function registerSettings() {
     default: "center",
     type: String,
     choices: {
-      "center": game.i18n.localize("pauseText.text.textAlign.choices.center"),
-      "left": game.i18n.localize("pauseText.text.textAlign.choices.left"),
-      "right": game.i18n.localize("pauseText.text.textAlign.choices.right"),
+      center: game.i18n.localize("pauseText.text.textAlign.choices.center"),
+      left: game.i18n.localize("pauseText.text.textAlign.choices.left"),
+      right: game.i18n.localize("pauseText.text.textAlign.choices.right"),
     },
   });
 
@@ -302,9 +311,13 @@ export function registerSettings() {
     default: "uppercase",
     type: String,
     choices: {
-      "none": game.i18n.localize("pauseText.text.fontCaps.choices.none"),
-      "capitalize": game.i18n.localize("pauseText.text.fontCaps.choices.capitalize"),
-      "uppercase": game.i18n.localize("pauseText.text.fontCaps.choices.uppercase"),
+      none: game.i18n.localize("pauseText.text.fontCaps.choices.none"),
+      capitalize: game.i18n.localize(
+        "pauseText.text.fontCaps.choices.capitalize",
+      ),
+      uppercase: game.i18n.localize(
+        "pauseText.text.fontCaps.choices.uppercase",
+      ),
     },
   });
 
@@ -316,11 +329,21 @@ export function registerSettings() {
     default: "pulse",
     type: String,
     choices: {
-      "none": game.i18n.localize("pauseText.animation.animationType.choices.none"),
-      "pulse": game.i18n.localize("pauseText.animation.animationType.choices.pulse"),
-      "rainbow": game.i18n.localize("pauseText.animation.animationType.choices.rainbow"),
-      "breath": game.i18n.localize("pauseText.animation.animationType.choices.breath"),
-      "glow": game.i18n.localize("pauseText.animation.animationType.choices.glow"),
+      none: game.i18n.localize(
+        "pauseText.animation.animationType.choices.none",
+      ),
+      pulse: game.i18n.localize(
+        "pauseText.animation.animationType.choices.pulse",
+      ),
+      rainbow: game.i18n.localize(
+        "pauseText.animation.animationType.choices.rainbow",
+      ),
+      breath: game.i18n.localize(
+        "pauseText.animation.animationType.choices.breath",
+      ),
+      glow: game.i18n.localize(
+        "pauseText.animation.animationType.choices.glow",
+      ),
     },
   });
 
@@ -352,11 +375,11 @@ export function registerSettings() {
 class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
   // Set the default options of the ApplicationV2 window
   static DEFAULT_OPTIONS = {
-    id: 'pause-text-messages-submenu',
+    id: "pause-text-messages-submenu",
     form: {
       closeOnSubmit: true,
       submitOnChange: false,
-      handler: PauseMessagesSubmenu.#onSubmit
+      handler: PauseMessagesSubmenu.#onSubmit,
     },
     position: {
       width: 550,
@@ -367,12 +390,12 @@ class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
       title: "pauseText.text.messages.submenuTitle",
       resizable: true,
       icon: "fa fa-file-text",
-      contentClasses: ["standard-form"]
+      contentClasses: ["standard-form"],
     },
     options: {
       scrollable: true,
     },
-  }
+  };
   // Set the html template for the pop-up window
   static PARTS = {
     form: {
@@ -381,7 +404,7 @@ class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
     footer: {
       template: "templates/generic/form-footer.hbs",
     },
-  }
+  };
   // Set the title of the pop-up window
   get title() {
     return `${game.i18n.format(this.options.window.title)}`;
@@ -394,9 +417,13 @@ class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
     return {
       messages,
       buttons: [
-        { type: "submit", icon: "fa-solid fa-save", label: "pauseText.text.messages.saveButton"}
-      ]
-    }
+        {
+          type: "submit",
+          icon: "fa-solid fa-save",
+          label: "pauseText.text.messages.saveButton",
+        },
+      ],
+    };
   }
 
   // Render the content inside the window
@@ -410,7 +437,9 @@ class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
   static async #onSubmit(event, form, formData) {
     const messages = foundry.utils.expandObject(formData.object);
     await Promise.all(
-      Object.entries(messages).map(([key, value]) => game.settings.set(MODULE_ID, key, value))
+      Object.entries(messages).map(([key, value]) =>
+        game.settings.set(MODULE_ID, key, value),
+      ),
     );
   }
 }
@@ -418,12 +447,12 @@ class PauseMessagesSubmenu extends HandlebarsApplicationMixin(ApplicationV2) {
 // Set color picker html tag for setting
 Hooks.on("renderSettingsConfig", (app, html, user) => {
   $("input[name='pause-text.fontColor']", html).replaceWith(`
-    <color-picker name="pause-text.fontColor" value="${game.settings.get(MODULE_ID, 'fontColor')}"></color-picker>
+    <color-picker name="pause-text.fontColor" value="${game.settings.get(MODULE_ID, "fontColor")}"></color-picker>
   `);
   $("input[name='pause-text.gradientColor']", html).replaceWith(`
-    <color-picker name="pause-text.gradientColor" value="${game.settings.get(MODULE_ID, 'gradientColor')}"></color-picker>
+    <color-picker name="pause-text.gradientColor" value="${game.settings.get(MODULE_ID, "gradientColor")}"></color-picker>
 `);
   $("input[name='pause-text.animationColor']", html).replaceWith(`
-    <color-picker name="pause-text.animationColor" value="${game.settings.get(MODULE_ID, 'animationColor')}"></color-picker>
+    <color-picker name="pause-text.animationColor" value="${game.settings.get(MODULE_ID, "animationColor")}"></color-picker>
 `);
 });
