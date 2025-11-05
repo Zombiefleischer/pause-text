@@ -158,6 +158,15 @@ export function registerSettings() {
     type: String,
   });
 
+  game.settings.register(MODULE_ID, "smoothTransition", {
+    name: game.i18n.localize("pauseText.text.smoothTransition.name"),
+    hint: game.i18n.localize("pauseText.text.smoothTransition.hint"),
+    scope: "world",
+    config: true,
+    default: true,
+    type: Boolean,
+  });
+
   game.settings.register(MODULE_ID, "textSync", {
     name: game.i18n.localize("pauseText.text.textSync.name"),
     hint: game.i18n.localize("pauseText.text.textSync.hint"),
