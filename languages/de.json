@@ -60,9 +60,13 @@
         "saveButton": "Speichern",
         "messageHint": "Du kannst \\n für einen Zeilenumbruch in deinen Meldungen verwenden!"
       },
+      "smoothTransition": {
+        "name": "Sanfte Textübergänge aktivieren:",
+        "hint": "Aktiviert einen sanften Übergang zwischen neuen Texten und der Höhe des Pause-Elements. Standard: an"
+      },
       "textSync": {
         "name": "Synchronisierung aktivieren:",
-        "hint": "Aktiviert oder deaktiviert die Synchronisierung des Pausentextes zwischen den Spielern."
+        "hint": "Aktiviert oder deaktiviert die Synchronisierung des Pausentextes zwischen den Spielern. Standard: aus"
       },
       "textRandomness": {
         "name": "Wahrgenommene Zufälligkeit erhöhen:",

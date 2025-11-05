@@ -59,9 +59,13 @@
         "saveButton": "Enregistrer",
         "messageHint": "Vous pouvez utiliser \\n pour insérer des sauts de ligne dans vos messages !"
       },
+      "smoothTransition": {
+        "name": "Activer la transition de texte fluide :",
+        "hint": "Active une transition fluide entre les nouveaux textes et la hauteur de l’élément de pause. Par défaut : true"
+      },
       "textSync": {
         "name": "Activer la synchronisation :",
-        "hint": "Active ou désactive la synchronisation du texte de pause entre les joueurs."
+        "hint": "Active ou désactive la synchronisation du texte de pause entre les joueurs. Valeur par défaut : false"
       },
       "textRandomness": {
         "name": "Augmenter l’aléatoire perçu :",
