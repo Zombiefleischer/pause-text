@@ -87,7 +87,7 @@
       "useGoogleFont": {
         "name": "Google Font:",
         "hint": "Aktiviere diese Option, wenn die Schriftart von Google Fonts stammt, andernfalls wird sie nicht funktionieren. Standard: aus"
-      }
+      },
       "fontColor": {
         "name": "Schriftfarbe:",
         "hint": "Farbhexcode der Schrift. Standard: #ada7b8"
