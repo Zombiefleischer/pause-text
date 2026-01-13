@@ -21,7 +21,6 @@
         "name": "Bildrotation:",
         "hint": "Legt die anfängliche Rotation des Bildes fest. Kann verwendet werden, um das Bild zu drehen, wenn die Rotationsanimation deaktiviert ist. Standard: 0"
       },
-
       "speed": {
         "name": "Geschwindigkeit:",
         "hint": "Sekunden pro Umdrehung, 0 bedeutet keine Rotation. Standard: 5"
@@ -62,7 +61,7 @@
       },
       "textSync": {
         "name": "Synchronisierung aktivieren:",
-        "hint": "Aktiviert oder deaktiviert die Synchronisierung des Pausentextes zwischen den Spielern."
+        "hint": "Aktiviert oder deaktiviert die Synchronisierung des Pausentextes zwischen den Spielern. Standard: aus"
       },
       "textRandomness": {
         "name": "Wahrgenommene Zufälligkeit erhöhen:",

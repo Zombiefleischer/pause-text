@@ -61,7 +61,7 @@
       },
       "textSync": {
         "name": "Enable Synchronization:",
-        "hint": "Enable or disable synchronization of the pause text between players."
+        "hint": "Enable or disable synchronization of the pause text between players. Default: false"
       },
       "textRandomness": {
         "name": "Increase perceived randomness:",
