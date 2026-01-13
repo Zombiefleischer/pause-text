@@ -1,4 +1,4 @@
-import { registerSettings } from "./settings.js";
+import {registerSettings} from "./settings.js";
 import { setPauseUI } from "./pause-text.js";
 
 export const MODULE_ID = "pause-text";
@@ -6,6 +6,8 @@ export const MODULE_ID = "pause-text";
 Hooks.on("init", async () => {
   registerSettings();
 });
+
+
 
 Hooks.on("renderGamePause", function (_, html, options) {
   if (options.cssClass === "paused") {

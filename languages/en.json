@@ -59,13 +59,9 @@
         "saveButton": "Save",
         "messageHint": "You can use \\n to insert newlines into your messages!"
       },
-      "smoothTransition": {
-        "name": "Enable Smooth Text Transition:",
-        "hint": "Enables a smooth transition between new texts and height of the pause element. Default: true"
-      },
       "textSync": {
         "name": "Enable Synchronization:",
-        "hint": "Enable or disable synchronization of the pause text between players. Default: false"
+        "hint": "Enable or disable synchronization of the pause text between players."
       },
       "textRandomness": {
         "name": "Increase perceived randomness:",

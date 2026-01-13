@@ -1,67 +1,12 @@
 import { MODULE_ID } from "./main.js";
 let socket;
 let pauseTextTimer = null;
-let __pauseAnimId = 0;
-let __firstPauseSetup = true;
-let __firstRun = true;
 
 const pauseTextHistory = {
   lines: [],
   history: [],
   limit: 0,
 };
-
-// ---- Smooth Transition Helpers ----
-// Cubic-beziers (can be tweaked)
-const EASE_IN = "cubic-bezier(0.32, 0, 0.67, 0)"; // faster start, slow end
-const EASE_OUT = "cubic-bezier(0.33, 1, 0.68, 1)"; // slow start, fast end
-const EASE_IN_OUT = "cubic-bezier(0.65, 0, 0.35, 1)"; // smooth both sides
-
-// Duration in ms
-const D_OPACITY_OUT = 120;
-const D_RESIZE = 140;
-const D_OPACITY_IN = 140;
-
-function onTransitionEndOnce(el, prop, fallbackMs) {
-  return new Promise((resolve) => {
-    let done = false;
-    const finish = () => {
-      if (!done) {
-        done = true;
-        el.removeEventListener("transitionend", handler);
-        resolve();
-      }
-    };
-    const handler = (e) => {
-      if (!prop || e.propertyName === prop) finish();
-    };
-    el.addEventListener("transitionend", handler, { once: true });
-    // Fallback in case 'transitionend' doesn't fire (display:none changes etc.)
-    if (fallbackMs != null) setTimeout(finish, fallbackMs + 50);
-  });
-}
-
-// Create an off-DOM (but styled) clone to measure the height the new text will occupy
-function measureCaptionHeightForText(text, refCaption) {
-  const clone = refCaption.cloneNode(true);
-  clone.innerText = text;
-  clone.style.position = "absolute";
-  clone.style.visibility = "hidden";
-  clone.style.pointerEvents = "none";
-  clone.style.opacity = "0";
-  clone.style.whiteSpace = "pre-wrap";
-  refCaption.parentElement.appendChild(clone);
-  const h = Math.ceil(clone.getBoundingClientRect().height);
-  clone.remove();
-  return h;
-}
-
-// Convenience to force style flush between steps
-function reflow(el) {
-  void el.offsetHeight;
-}
-
-// ---- Smooth Transition Helpers End ----
 
 // Little alias function to get the settings from Foundry
 let setting = (key) => {
@@ -84,16 +29,11 @@ export async function setPauseUI() {
   if (!pauseElement) {
     return;
   } else {
-    __firstPauseSetup = true;
-
     // set the Image Element
     setImage(pauseElement);
 
     // Run once to set the message initially, since the `pauseTextTimer` only runs after the first interval has passed
-    if (__firstRun) {
-      __firstRun = false;
-      updatePauseDisplay();
-    }
+    updatePauseDisplay();
 
     // Clear existing timer
     if (pauseTextTimer) {
@@ -179,16 +119,15 @@ function setMessageAndBackground(syncEnabled, selectedMessage) {
   }
 }
 
-async function displayPauseText(selectedMessage) {
+function displayPauseText(selectedMessage) {
   const html = document.querySelector("#pause");
 
   // Get caption
   const pauseElement = document.getElementById("pause");
   const pauseText = pauseElement.querySelector("figcaption");
 
-  const myAnimId = ++__pauseAnimId;
-
   // Change pause text
+  pauseText.innerText = selectedMessage.replaceAll(/\\n/g, "\n");
   pauseText.style.color = setting("fontColor");
   pauseText.style.textAlign = setting("textAlign");
   pauseText.style.textTransform = setting("fontCaps");
@@ -228,77 +167,21 @@ async function displayPauseText(selectedMessage) {
   const backgroundOpacity = setting("gradientOpacity")
     .toString(16)
     .padStart(2, "0");
-  // Check if the background will be displayed (and set gradient)
-  html.style.background = background
-    ? `linear-gradient(to right, transparent 0%, ${gradientColor}${backgroundOpacity} 40%, ${gradientColor}${backgroundOpacity} 60%, transparent 100%)`
-    : "none";
-
-  // Measuring new height
-  const currentLineHeight = Math.ceil(pauseText.getBoundingClientRect().height);
-  const newText = selectedMessage.replaceAll(/\\n/g, "\n");
-  const newLineHeight = measureCaptionHeightForText(newText, pauseText);
-
-  // Calculate target box metrics
-  const basePadding = 64;
-  const lineHeightPx = currentLineHeight;
-  const targetHeightPx = Math.round(basePadding + imgHeight + newLineHeight);
-
-  const calculateTop = (lineHeightForTop) =>
-    `calc(${verticalPos}vh - ${100 + 0.5 * (imgHeight - 100) + 0.5 * (lineHeightForTop - 16)}px)`;
+  html.style.background = `linear-gradient(to right, transparent 0%, ${gradientColor}${backgroundOpacity} 40%, ${gradientColor}${backgroundOpacity} 60%, transparent 100%)`;
 
   // Set the background height
-  html.style.height = `${Math.round(basePadding + imgHeight + lineHeightPx)}px`;
+  html.style.height = `${Math.round(64 + imgHeight + lineHeight)}px`;
 
   // Set the vertical position
-  html.style.top = calculateTop(lineHeightPx);
+  html.style.top = `calc(${verticalPos}vh - ${100 + 0.5 * (imgHeight - 100) + 0.5 * (lineHeight - 16)}px)`;
 
-  // // Set the horizontal position
+  // Set the horizontal position
   html.style.left = `${horizontalPos - 50}vw`;
 
-  const instant = __firstPauseSetup || !setting("smoothTransition");
-  __firstPauseSetup = false;
-  if (instant) {
-    pauseText.style.transition = "none";
-    html.style.transition = "none";
-    pauseText.innerText = newText;
-    html.style.height = `${targetHeightPx}px`;
-    html.style.top = calculateTop(newLineHeight);
-    if (setting("animationType") === "none") {
-      html.style.animation = "none";
-    } else {
-      applyAnimation(html);
-    }
-    return;
+  // Check if the background will be displayed
+  if (!background) {
+    html.style.background = "none";
   }
-
-  // Fade OUT current text (ease-in)
-  pauseText.style.willChange = "opacity";
-  pauseText.style.transition = `opacity ${D_OPACITY_OUT}ms ${EASE_IN}`;
-  reflow(pauseText); //flush
-  pauseText.style.opacity = "0";
-  await onTransitionEndOnce(pauseText, "opacity", D_OPACITY_OUT);
-  if (myAnimId !== __pauseAnimId) return; // aborted by a newer call
-
-  // Resize background to fit new text (ease-in-out)
-  html.style.willChange = "height, top";
-  html.style.transition = `height ${D_RESIZE}ms ${EASE_IN_OUT}, top ${D_RESIZE}ms ${EASE_IN_OUT}`;
-  reflow(html);
-  html.style.height = `${targetHeightPx}px`;
-  html.style.top = calculateTop(newLineHeight);
-  await onTransitionEndOnce(html, "height", D_RESIZE);
-  if (myAnimId !== __pauseAnimId) return;
-
-  // Swap in NEW text and fade IN (ease-out)
-  pauseText.innerText = newText;
-  pauseText.style.transition = `opacity ${D_OPACITY_IN}ms ${EASE_OUT}`;
-  reflow(pauseText);
-  pauseText.style.opacity = "1";
-  await onTransitionEndOnce(pauseText, "opacity", D_OPACITY_IN);
-  if (myAnimId !== __pauseAnimId) return;
-
-  // Clear will-change
-  pauseText.style.willChange = "auto";
-  html.style.willChange = "auto";
 
   // Set animation
   if (setting("animationType") === "none") {
