@@ -63,9 +63,14 @@
         "name": "Enable Synchronization:",
         "hint": "Enable or disable synchronization of the pause text between players. Default: false"
       },
-      "textRandomness": {
-        "name": "Increase perceived randomness:",
-        "hint": "Enables a Tetris The Grand Master inspired algorithm, that increases the human perceived randomness. Disables true randomness. Default: false"
+      "textSelectionMode": {
+        "name": "Text selection mode:",
+        "hint": "Choose how pause text messages are selected.\n\"In Order\" displays messages sequentially and remembers the last position until the session is reloaded.\n\"Random\" uses true randomness.\n\"Random (Less Repetition)\" uses a Tetris The Grand Master inspired algorithm to reduce recently repeated messages. Default: Random",
+        "choices": {
+          "ordered": "In Order",
+          "random": "Random",
+          "perceivedRandom": "Random (Less Repetition)"
+        }
       },
       "changeInterval": {
         "name": "Change Text Interval:",

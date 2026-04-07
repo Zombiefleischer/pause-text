@@ -67,6 +67,15 @@
         "name": "Wahrgenommene Zufälligkeit erhöhen:",
         "hint": "Aktiviert einen von Tetris The Grand Master inspirierten Algorithmus, der die menschlich wahrgenommene Zufälligkeit erhöht. Deaktiviert echten Zufall. Standard: aus"
       },
+      "textSelectionMode": {
+        "name": "Text-Auswahlmodus:",
+        "hint": "Wählen Sie aus, wie Textnachrichten ausgewählt werden sollen.\n„In Reihenfolge“ zeigt Nachrichten nacheinander an und merkt sich die letzte Position, bis die Sitzung neu geladen wird.\n„Zufällig“ verwendet echte Zufälligkeit.\n„Zufällig (weniger Wiederholungen)“ verwendet einen von Tetris The Grand Master inspirierten Algorithmus, um kürzlich wiederholte Nachrichten zu reduzieren. Standard: Zufällig",
+        "choices": {
+          "ordered": "In Reihenfolge",
+          "random": "Zufällig",
+          "perceivedRandom": "Zufällig (weniger Wiederholungen)"
+        }
+      },
       "changeInterval": {
         "name": "Textwechsel-Intervall:",
         "hint": "Sekunden bis zur Anzeige eines neuen zufälligen Textes. 0 oder negative Werte deaktivieren diese Funktion. Standard: 15s"
@@ -157,4 +166,3 @@
     }
   }
 }
-

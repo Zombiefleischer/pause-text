@@ -63,11 +63,15 @@
         "name": "Activer la synchronisation :",
         "hint": "Active ou désactive la synchronisation du texte de pause entre les joueurs. Valeur par défaut : false"
       },
-      "textRandomness": {
-        "name": "Augmenter l’aléatoire perçu :",
-        "hint": "Active un algorithme inspiré de Tetris The Grand Master qui augmente l’aléatoire perçue par l’humain. Désactive le véritable hasard. Valeur par défaut : false"
+      "textSelectionMode": {
+        "name": "Mode de sélection du texte :",
+        "hint": "Choisissez comment les messages de pause sont sélectionnés.\n\"Dans l'ordre\" affiche les messages de manière séquentielle et mémorise la dernière position jusqu'au rechargement de la session.\n\"Aléatoire\" utilise un hasard réel.\n\"Aléatoire (moins de répétitions)\" utilise un algorithme inspiré de Tetris The Grand Master pour réduire les répétitions récentes. Par défaut : Aléatoire",
+        "choices": {
+          "ordered": "Dans l'ordre",
+          "random": "Aléatoire",
+          "perceivedRandom": "Aléatoire (moins de répétitions)"
+        }
       },
-
       "changeInterval": {
         "name": "Intervalle de changement de texte :",
         "hint": "Secondes avant l’affichage d’un nouveau message aléatoire. 0 ou une valeur négative désactive cette fonction. Par défaut : 15s"

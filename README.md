@@ -1,3 +1,10 @@
+> **AI Usage Disclosure**
+> This module is fully authored by a human.
+> AI tools such as ChatGPT were used for guidance and problem-solving during development,
+> but all code was written and verified by the author.
+> Localization was partly community-provided,
+> and newer features were localized using [DeepL](https://www.deepl.com/en/translator).
+
 # ⏸️ Alternative Pause Text
 
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Zombiefleischer/pause-text/total?style=for-the-badge)
