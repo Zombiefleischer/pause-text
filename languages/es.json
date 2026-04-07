@@ -19,7 +19,7 @@
       },
       "initRotation": {
         "name": "Rotación de la imagen:",
-        "hint": "Establece la rotación inicial de la imagen. Se puede usar para rotarla si la animación de rotación está desactivada. Predeterminado: 0"
+        "hint": "Establece la rotación inicial de la imagen. Se puede usar para rotarla si la animación de rotación está desactivada. Por defecto: 0"
       },
       "speed": {
         "name": "Velocidad:",
@@ -61,11 +61,16 @@
       },
       "textSync": {
         "name": "Habilitar sincronización:",
-        "hint": "Habilita o deshabilita la sincronización del texto de pausa entre los jugadores. Predeterminado: false"
+        "hint": "Habilita o deshabilita la sincronización del texto de pausa entre los jugadores. Por defecto: false"
       },
-      "textRandomness": {
-        "name": "Aumentar la aleatoriedad percibida:",
-        "hint": "Activa un algoritmo inspirado en Tetris The Grand Master que aumenta la aleatoriedad percibida por los humanos. Desactiva la aleatoriedad verdadera. Predeterminado: false"
+      "textSelectionMode": {
+        "name": "Modo de selección de texto:",
+        "hint": "Elige cómo se seleccionan los mensajes de pausa.\n\"En orden\" muestra los mensajes de forma secuencial y recuerda la última posición hasta que se recarga la sesión.\n\"Aleatorio\" utiliza aleatoriedad real.\n\"Aleatorio (menos repetición)\" usa un algoritmo inspirado en Tetris The Grand Master para reducir los mensajes repetidos recientemente. Por defecto: Aleatorio",
+        "choices": {
+          "ordered": "En orden",
+          "random": "Aleatorio",
+          "perceivedRandom": "Aleatorio (menos repetición)"
+        }
       },
       "changeInterval": {
         "name": "Intervalo de cambio de texto:",
@@ -73,7 +78,7 @@
       },
       "textWidth": {
         "name": "Cambiar ancho del texto:",
-        "hint": "Cambia el ancho del texto en proporción al ancho de la ventana. Predeterminado: 90%"
+        "hint": "Cambia el ancho del texto en proporción al ancho de la ventana. Por defecto: 90%"
       },
       "fontFamily": {
         "name": "Fuente:",
@@ -81,27 +86,27 @@
       },
       "useGoogleFont": {
         "name": "Fuente de Google:",
-        "hint": "Marca esta opción si la fuente proviene de Google Fonts, de lo contrario no funcionará. Predeterminado: false"
+        "hint": "Marca esta opción si la fuente proviene de Google Fonts, de lo contrario no funcionará. Por defecto: false"
       },
       "fontColor": {
         "name": "Color de fuente:",
-        "hint": "Código hexadecimal del color de la fuente. Predeterminado: #ada7b8"
+        "hint": "Código hexadecimal del color de la fuente. Por defecto: #ada7b8"
       },
       "fontSize": {
         "name": "Tamaño de fuente (em):",
-        "hint": "Tamaño de la fuente en em. Predeterminado: 2em"
+        "hint": "Tamaño de la fuente en em. Por defecto: 2em"
       },
       "fontBold": {
         "name": "Negrita:",
-        "hint": "Aplica negrita a la fuente. Algunas fuentes no lo admiten. Predeterminado: true"
+        "hint": "Aplica negrita a la fuente. Algunas fuentes no lo admiten. Por defecto: true"
       },
       "fontItalic": {
         "name": "Cursiva:",
-        "hint": "Aplica cursiva a la fuente. Algunas fuentes no lo admiten. Predeterminado: false"
+        "hint": "Aplica cursiva a la fuente. Algunas fuentes no lo admiten. Por defecto: false"
       },
       "fontSmallCaps": {
         "name": "Versalitas:",
-        "hint": "Activa la variante 'small-caps'. Las minúsculas se convierten en mayúsculas pequeñas. Predeterminado: false"
+        "hint": "Activa la variante 'small-caps'. Las minúsculas se convierten en mayúsculas pequeñas. Por defecto: false"
       },
       "lineHeight": {
         "name": "Altura de línea (rem):",
@@ -109,7 +114,7 @@
       },
       "lineOffset": {
         "name": "Desplazamiento vertical de línea (px):",
-        "hint": "Desplazamiento del mensaje en relación con la imagen. Valores negativos lo suben, positivos lo bajan. Funciona mejor sin fondo. Predeterminado: 0px"
+        "hint": "Desplazamiento del mensaje en relación con la imagen. Valores negativos lo suben, positivos lo bajan. Funciona mejor sin fondo. Por defecto: 0px"
       },
       "textShadow": {
         "name": "Habilitar sombra:",

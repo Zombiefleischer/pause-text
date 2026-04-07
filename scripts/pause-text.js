@@ -6,6 +6,7 @@ const pauseTextHistory = {
   lines: [],
   history: [],
   limit: 0,
+  lastIndex: -1,
 };
 
 // Little alias function to get the settings from Foundry
@@ -98,8 +99,8 @@ function updatePauseDisplay() {
   // Get sync
   const syncEnabled = setting("textSync");
 
-  // Get random message
-  const selectedMessage = selectRandomPauseText(setting("messages"));
+  // Get message
+  const selectedMessage = selectPauseText(setting("messages"));
 
   if (syncEnabled) {
     socket.executeAsGM("setMessageAndBackground", true, selectedMessage);
@@ -240,35 +241,53 @@ function applyAnimation(html) {
   }
 }
 
-function selectRandomPauseText(allText) {
+function selectPauseText(allText) {
   const lines = allText.split(/\n/).filter((l) => l.trim());
   if (lines.length === 0) return "";
 
-  if (!setting("textRandomness")) {
-    return lines[Math.floor(Math.random() * lines.length)];
-  }
+  const mode = setting("textSelectionMode");
 
   // If the source lines changed, reset history
   if (pauseTextHistory.lines.join("\n") !== lines.join("\n")) {
     pauseTextHistory.lines = lines;
     pauseTextHistory.history = [];
     pauseTextHistory.limit = Math.ceil(lines.length / 2);
+    pauseTextHistory.lastIndex = -1;
   }
 
-  let candidate;
-  const attempts = 4;
-  for (let i = 0; i < attempts; i++) {
-    candidate = lines[Math.floor(Math.random() * lines.length)];
-    if (!pauseTextHistory.history.includes(candidate)) break;
-  }
+  switch (mode) {
+    case "ordered": {
+      pauseTextHistory.lastIndex =
+        (pauseTextHistory.lastIndex + 1) % lines.length;
+      return lines[pauseTextHistory.lastIndex];
+    }
 
-  // Update history (treat it like a queue)
-  pauseTextHistory.history.push(candidate);
-  if (pauseTextHistory.history.length > pauseTextHistory.limit) {
-    pauseTextHistory.history.shift();
-  }
+    case "random": {
+      return lines[Math.floor(Math.random() * lines.length)];
+    }
 
-  return candidate;
+    case "perceivedRandom": {
+      let candidate;
+      const attempts = 4;
+      for (let i = 0; i < attempts; i++) {
+        candidate = lines[Math.floor(Math.random() * lines.length)];
+        if (!pauseTextHistory.history.includes(candidate)) break;
+      }
+
+      // Update history queue
+      pauseTextHistory.history.push(candidate);
+      if (pauseTextHistory.history.length > pauseTextHistory.limit) {
+        pauseTextHistory.history.shift();
+      }
+
+      return candidate;
+    }
+
+    default: {
+      // Fallback
+      return lines[0];
+    }
+  }
 }
 
 function measureHeight(element) {

@@ -167,13 +167,24 @@ export function registerSettings() {
     type: Boolean,
   });
 
-  game.settings.register(MODULE_ID, "textRandomness", {
-    name: game.i18n.localize("pauseText.text.textRandomness.name"),
-    hint: game.i18n.localize("pauseText.text.textRandomness.hint"),
+  game.settings.register(MODULE_ID, "textSelectionMode", {
+    name: game.i18n.localize("pauseText.text.textSelectionMode.name"),
+    hint: game.i18n.localize("pauseText.text.textSelectionMode.hint"),
     scope: "world",
     config: true,
-    default: false,
-    type: Boolean,
+    default: "random",
+    type: String,
+    choices: {
+      ordered: game.i18n.localize(
+        "pauseText.text.textSelectionMode.choices.ordered",
+      ),
+      random: game.i18n.localize(
+        "pauseText.text.textSelectionMode.choices.random",
+      ),
+      perceivedRandom: game.i18n.localize(
+        "pauseText.text.textSelectionMode.choices.perceivedRandom",
+      ),
+    },
   });
 
   game.settings.register(MODULE_ID, "changeInterval", {
