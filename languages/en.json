@@ -116,6 +116,14 @@
         "name": "Vertical Line Offset (px):",
         "hint": "Offset of the message line in relation to the image. Negative values offset upwards, positive values downwards. Works best with background off. Default: 0px"
       },
+      "letterSpacing": {
+        "name": "Letter spacing (em):",
+        "hint": "Distance between individual letters in a word. Default: 0px"
+      },
+      "wordSpacing": {
+        "name": "Word spacing width (em):",
+        "hint": "Size of spaces seperating words in a sentence. Default: 0px"
+      },
       "textShadow": {
         "name": "Enable Drop Shadow:",
         "hint": "When enabled there is a drop shadow under the text."

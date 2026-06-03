@@ -290,6 +290,24 @@ export function registerSettings() {
     default: 0,
     type: Number,
   });
+    //Word & letter spacing added by KoggaJ
+  game.settings.register(MODULE_ID, "letterSpacing", {
+    name: game.i18n.localize("pauseText.text.letterSpacing.name"),
+    hint: game.i18n.localize("pauseText.text.letterSpacing.hint"),
+    scope: "world",
+    config: true,
+    default: 0,
+    type: Number,
+  });
+
+  game.settings.register(MODULE_ID, "wordSpacing", {
+    name: game.i18n.localize("pauseText.text.wordSpacing.name"),
+    hint: game.i18n.localize("pauseText.text.wordSpacing.hint"),
+    scope: "world",
+    config: true,
+    default: 0,
+    type: Number,
+  });  
 
   game.settings.register(MODULE_ID, "textShadow", {
     name: game.i18n.localize("pauseText.text.textShadow.name"),
