@@ -130,6 +130,9 @@ function displayPauseText(selectedMessage) {
   // Change pause text
   pauseText.innerText = selectedMessage.replaceAll(/\\n/g, "\n");
   pauseText.style.color = setting("fontColor");
+    //Word & letter spacing added by KoggaJ
+  pauseText.style["letter-spacing"] = `${setting("letterSpacing")}em`;
+  pauseText.style["word-spacing"] = `${setting("wordSpacing")}em`;
   pauseText.style.textAlign = setting("textAlign");
   pauseText.style.textTransform = setting("fontCaps");
   pauseText.style["font-size"] = `${setting("fontSize")}em`;
